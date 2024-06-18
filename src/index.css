@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #313131;
+}
+::-webkit-scrollbar-thumb {
+  background: #b3a0ec;
+  border-radius: 500px;
+}
+
+::selection {
+  background-color: #111;
+  color: #b3a0ec;
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+html, body{
+    cursor: url("../src/assets/cursor.svg") 16 16, auto;
+}
+
+
+
+nav ul a {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+}
+nav ul a::before {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 30%;
+  background: linear-gradient(to left, #3333, #999);
+
+  position: absolute;
+  bottom: 0;
+
+  transition: width 300ms;
+}
+
+nav ul a:hover::before {
+  width: 90%;
+}
+
+h2 {
+  text-decoration-line: underline;
+  -moz-text-decoration-thickness: 10px;
+  text-decoration-thickness: 10px;
+  text-decoration-color: slateblue;
+}

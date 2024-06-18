@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="src/assets/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css?family=Teko:300,regular,500,600,700" rel="stylesheet" />
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css' integrity='sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==' crossorigin='anonymous'/>
+   <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+   <style>
+    html,body{
+      scroll-behavior: smooth;
+      font-family: "JetBrains Mono", sans-serif !important;
+    }
+   </style>
+    <title>Haider | Portfolio</title>
+  </head>
+  <body>
+    <div id="root" class="bg-gradient-to-r from-black to-gray-800 text-white"></div>
+    <div id="cursor" class="size-5 bg-gradient-to-tr from-slate-500 to-zinc-300 rounded-full fixed"></div>
+
+    <script>
+      const cursor = document.getElementById("cursor")
+      document.body.addEventListener("mousemove",e=>{
+        let rect = cursor.getBoundingClientRect();
+        setTimeout(() => {
+          cursor.style.left = (e.clientX - rect.width) + "px"
+          cursor.style.top = e.clientY + "px"
+        }, 100);
+      })
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
