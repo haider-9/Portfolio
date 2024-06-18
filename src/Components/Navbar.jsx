@@ -12,7 +12,7 @@ const Navbar = (props) => {
       className={`flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono]`}>
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         {/* <span className="font-semibold text-4xl tracking-tight">Haider</span> */}
-        <img src="src/assets/favicon.png" alt="" className="invert w-20" />
+        <img src="assets/favicon.png" alt="" className="invert w-20" />
       </div>
       <div className="block lg:hidden">
         <button
@@ -77,7 +77,7 @@ const Navbar = (props) => {
         </div>
         <div className="my-5 lg:my-0 flex justify-center">
           <a
-            href="src/assets/HaiderCV.pdf"
+            href="assets/HaiderCV.pdf"
             download
             className="w-1/2 lg:w-full inline-block bg-zinc-700 hover:bg-zinc-500 text-white text-lg  py-4 px-8 text-center rounded-full focus:outline-none focus:shadow-outline transition duration-300 border border-zinc-400">
             <span className="drop-shadow-[0_0_5px_#aaa]">

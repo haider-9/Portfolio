@@ -84,34 +84,34 @@ const App = () => {
           <div className="container m-auto px-4 py-8">
             <div className="grid m-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
               <div className="flex justify-center">
-                <Stack img_url="src/assets/HTML.svg" name="HTML" alt="HTML" />
+                <Stack img_url="assets/HTML.svg" name="HTML" alt="HTML" />
               </div>
               <div className="flex justify-center">
-                <Stack img_url="src/assets/CSS.svg" name="CSS" alt="CSS" />
+                <Stack img_url="assets/CSS.svg" name="CSS" alt="CSS" />
               </div>
               <div className="flex justify-center">
                 <Stack
-                  img_url="src/assets/JS.svg"
+                  img_url="assets/JS.svg"
                   name="JavaScript"
                   alt="JavaScript"
                 />
               </div>
               <div className="flex justify-center">
                 <Stack
-                  img_url="src/assets/react.svg"
+                  img_url="assets/react.svg"
                   name="React"
                   alt="React"
                 />
               </div>
               <div className="flex justify-center">
                 <Stack
-                  img_url="src/assets/Tailwind.svg"
+                  img_url="assets/Tailwind.svg"
                   name="Tailwind"
                   alt="Tailwind"
                 />
               </div>
               <div className="flex justify-center">
-                <Stack img_url="src/assets/GIT.svg" name="GIT" alt="GIT" />
+                <Stack img_url="assets/GIT.svg" name="GIT" alt="GIT" />
               </div>
             </div>
           </div>

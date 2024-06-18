@@ -6,17 +6,17 @@ const AboutMe = () => {
         <div className="flex flex-col md:flex-row gap-10">
           <div className="relative h-72 min-w-[200px] md:w-1/3 w-full group *:transition-all *:duration-300">
             <img
-              src="src/assets/zoro-v-king.jpg"
+              src="assets/zoro-v-king.jpg"
               alt="anime"
               className="w-64 object-cover object-center rounded-xl border-[10px] border-gray-200 rotate-6 z-10 absolute top-1/3 right-8 group-hover:w-52 group-hover:translate-y-14"
             />
             <img
-              src="src/assets/fakhar-zaman.png"
+              src="assets/fakhar-zaman.png"
               alt="cricket"
               className="w-64 aspect-video object-cover object-top rounded-xl border-[10px] border-gray-200 -rotate-6 absolute bottom-1/3 group-hover:w-52 group-hover:-translate-y-12 group-hover:md:-translate-y-28"
             />
             <img
-              src="src/assets/gargantua.webp"
+              src="assets/gargantua.webp"
               alt="astronomy"
               className="w-64 aspect-video object-cover object-top rounded-xl border-[10px] border-gray-200 -rotate-12 absolute top-1/3 right-3 group-hover:w-52 sm:left-1/4 md:left-0 -translate-y-10 group-hover:rotate-6 group-hover:translate-14"
             />

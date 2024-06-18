@@ -22,7 +22,7 @@ img {
 }
 
 html, body{
-    cursor: url("../src/assets/cursor.svg") 16 16, auto;
+    cursor: url("assets/cursor.svg") 16 16, auto;
 }
 
 

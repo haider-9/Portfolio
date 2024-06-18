@@ -32,7 +32,7 @@ const Mainsec = () => {
       {/* Middle Column */}
       <div id="profile-pic" className="w-2/3 relative flex-grow flex justify-center -order-2 md:order-none md:w-72 mx-auto md:mx-0 ">
         <img
-          src="src/assets/profile-pic__1_-removebg-preview.png"
+          src="assets/profile-pic__1_-removebg-preview.png"
           alt="Profile Pic"
           className="cursor-pointer drop-shadow-[0_0_10px_linear-gradient] hover:scale-105 transition-all duration-300 w-full md:w-2/3 aspect-square object-cover object-center z-10"
         />

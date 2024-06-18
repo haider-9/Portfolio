@@ -1,4 +1,4 @@
-import voyagertravels from "./assets/VoyagerTravels.png";
+import voyagertravels from "../public/assets/VoyagerTravels.png";
 export const projects = [
   {
     id: 1,
