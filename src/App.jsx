@@ -30,7 +30,7 @@ const App = () => {
           duration: 1,
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            start: "top 90%",
             end: "bottom 20%",
             toggleActions: "play pause resume reverse",
           },
@@ -50,7 +50,7 @@ const App = () => {
           trigger: "#skills",
           start: "top 80%",
           end: "bottom 20%",
-          toggleActions: "play pause resume reset",
+          toggleActions: "play resume resume reset",
         },
       }
     );
