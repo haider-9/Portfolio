@@ -12,7 +12,7 @@ export const projects = [
     id: 2,
     name: "Animadom",
     description: "Welcome to Animadom, my first Next.js project.  ",
-    image_url: "../public/assets/animadom.png",
+    image_url: "/assets/animadom.png",
     preview_url: "https://animadom.vercel.app/",
     code_url: "https://github.com/haider-9",
   },
