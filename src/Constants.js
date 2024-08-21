@@ -16,4 +16,12 @@ export const projects = [
     preview_url: "https://animadom.vercel.app/",
     code_url: "https://github.com/haider-9",
   },
+  {
+    id:3,
+    name:"MangaDom",
+    description:"MangaDom, a part of Animadom project, also made in nextjs",
+    image_url:"https://dummyimage.com/",
+    preview_url:"https://mangadom.vercel.app",
+    code_url:"https://github.com/haider-9",
+  },
 ];
