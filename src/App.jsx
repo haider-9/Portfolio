@@ -126,7 +126,8 @@ const App = () => {
             </p>
           </div>
 
-          <div className="container p-4 py-8 w-[50%] m-auto flex flex-wrap flex-row justify-center items-center gap-5">
+
+          <div className="container p-4 py-8 w-full m-auto flex flex-row flex-wrap justify-center items-center gap-5">
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
