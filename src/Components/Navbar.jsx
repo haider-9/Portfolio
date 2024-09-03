@@ -79,10 +79,13 @@ const Navbar = (props) => {
           <a
             href="assets/HaiderCV.pdf"
             download
-            className="w-1/2 lg:w-full inline-block bg-zinc-700 hover:bg-zinc-500 text-white text-lg  py-4 px-8 text-center rounded-full focus:outline-none focus:shadow-outline transition duration-300 border border-zinc-400">
+
+            className="w-1/2 lg:w-full inline-block bg-zinc-700 hover:bg-zinc-500 text-white text-lg py-2 px-4 text-center rounded-lg focus:outline-none focus:shadow-outline transition duration-300 border border-zinc-400">
             <span className="drop-shadow-[0_0_5px_#aaa]">
-              <i className="fa fa-download mr-4 "></i>
-              Resumé
+
+
+              <i className="fa fa-download mr-2"></i>
+              Download CV
             </span>
           </a>
         </div>
@@ -90,5 +93,6 @@ const Navbar = (props) => {
     </nav>
   );
 };
+
 
 export default Navbar;
