@@ -23,11 +23,11 @@ const App = () => {
     sections.forEach((section) => {
       gsap.fromTo(
         section,
-        { y: 100, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.8,
           scrollTrigger: {
             trigger: section,
             start: "top 90%",
@@ -40,12 +40,12 @@ const App = () => {
 
     gsap.fromTo(
       skills,
-      { y: 100, opacity: 0 },
+      { y: 50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1,
-        stagger: 0.3,
+        duration: 0.8,
+        stagger: 0.2,
         scrollTrigger: {
           trigger: "#skills",
           start: "top 80%",

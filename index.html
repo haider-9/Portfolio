@@ -18,19 +18,43 @@
     <title>Haider | Portfolio</title>
   </head>
   <body>
-    <div id="root" class="bg-gradient-to-r from-black to-gray-800 text-white"></div>
-    <div id="cursor" class="size-5 bg-gradient-to-tr from-slate-500 to-zinc-300 rounded-full fixed"></div>
+    <div id="root" class="bg-gradient-to-r from-black to-gray-800 text-white flex items-center justify-center min-h-screen">
+        <h1 class="text-4xl font-bold">Welcome to My Portfolio</h1>
+    </div>
+    <div id="cursor" class="size-6 border-purple-500 bg-purple-200 bg-opacity-50 rounded-full fixed pointer-events-none hidden md:block"></div>
 
     <script>
-      const cursor = document.getElementById("cursor")
-      document.body.addEventListener("mousemove",e=>{
-        let rect = cursor.getBoundingClientRect();
-        setTimeout(() => {
-          cursor.style.left = (e.clientX - rect.width) + "px"
-          cursor.style.top = e.clientY + "px"
-        }, 100);
-      })
+      const cursor = document.getElementById("cursor");
+    
+      // Smooth mousemove with some delay
+      document.body.addEventListener("mousemove", (e) => {
+        setTimeout(()=>{
+          requestAnimationFrame(() => {
+          const rect = cursor.getBoundingClientRect();
+          cursor.style.left = `${e.clientX - rect.width / 2}px`;
+          cursor.style.top = `${e.clientY - rect.height / 2}px`;
+        });
+      },150)
+    });
+        
+      
+      // Show the cursor when the mouse moves
+      document.body.addEventListener("mousemove", () => {
+        cursor.classList.remove("hidden");
+      });
     </script>
+    
+    <style>
+      #cursor {
+        transition: transform 0.1s ease, background-color 0.3s ease;
+      }
+    
+      #cursor:hover {
+        background-color: rgba(0, 150, 255, 0.4);
+        transform: scale(1.7); /* Increased scale for zoom effect */
+      }
+    </style>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
