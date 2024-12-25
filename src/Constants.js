@@ -10,7 +10,7 @@ export const projects = [
     code_url: "https://github.com/haider-9",
     video_url: "/assets/Voyager.mp4",
     tech_stack: [
-      { url: "/assets/tailwind.svg", name: 'Tailwind CSS' }
+      { url: "/assets/tailwindcss.svg", name: 'Tailwind CSS' }
     ]
   },
   {

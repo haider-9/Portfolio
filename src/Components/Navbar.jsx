@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,9 +8,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono] ">
+    <nav className="flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono] backdrop-blur-sm bg-white/5 rounded-xl border border-white/10 mt-4">
       <div className="flex items-center flex-shrink-0 mr-6">
-        <img src="assets/favicon.png" alt="Logo" className="invert w-16 hover:rotate-180 transition-all duration-500" />
+        <img
+          src="assets/favicon.png"
+          alt="Logo"
+          className="invert w-16 hover:rotate-180 transition-all duration-500"
+        />
       </div>
 
       <div className="block lg:hidden">
@@ -68,14 +72,27 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        
+
         <div className="mt-4 lg:mt-0">
           <a
             href="assets/HaiderCV.pdf"
             download
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform  hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform  hover:shadow-lg hover:shadow-purple-500/20 group"
           >
-            Download CV
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            <span>Download CV</span>
           </a>
         </div>
       </div>

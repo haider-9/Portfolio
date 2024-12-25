@@ -25,13 +25,18 @@ const Card = () => {
     }, 400);
   };
 
-  const nextSlide = () =>
+  const nextSlide = () => {
     handleSlideChange((currentIndex + 1) % projects.length);
-  const prevSlide = () =>
+  };
+
+  const prevSlide = () => {
     handleSlideChange((currentIndex - 1 + projects.length) % projects.length);
+  };
+
+  // Rest of your component code...
 
   return (
-    <div className="relative max-w-[90%] lg:max-w-7xl mx-auto">
+    <div className="relative max-w-[90%] lg:max-w-7xl mx-auto text-white">
       <div
         className={`grid md:grid-cols-2 gap-8 mx-auto p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 
         transition-all duration-500 transform
@@ -141,6 +146,7 @@ const Card = () => {
           </div>
         </div>
       </div>
+
       <button
         onClick={prevSlide}
         className="absolute -left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 text-white hidden md:block"
@@ -154,6 +160,21 @@ const Card = () => {
       >
         <IoIosArrowForward size={24} />
       </button>
+
+      <div className="flex justify-center gap-4 mt-8 mb-4 md:hidden">
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        >
+          <IoIosArrowBack size={20} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        >
+          <IoIosArrowForward size={20} />
+        </button>
+      </div>
 
       <div className="flex justify-center gap-2 mt-6">
         {projects.map((_, index) => (
@@ -173,18 +194,3 @@ const Card = () => {
 export default Card;
 
 // Add these buttons just before the closing div of the main container
-<div className="flex justify-center gap-4 mt-6 md:hidden">
-  <button
-    onClick={prevSlide}
-    className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-  >
-    <IoIosArrowBack size={20} />
-  </button>
-
-  <button
-    onClick={nextSlide}
-    className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-  >
-    <IoIosArrowForward size={20} />
-  </button>
-</div>
