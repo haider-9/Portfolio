@@ -33,7 +33,6 @@ const Card = () => {
     handleSlideChange((currentIndex - 1 + projects.length) % projects.length);
   };
 
-
   return (
     <div className="relative max-w-[90%] lg:max-w-7xl mx-auto text-white">
       <div
@@ -46,27 +45,33 @@ const Card = () => {
         }`}
       >
         <div
-          className="overflow-hidden rounded-xl h-[300px] sm:h-[400px] lg:h-[500px] relative w-full"
+          className="overflow-hidden rounded-xl h-[250px] sm:h-[300px] lg:h-[400px] relative w-full"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <img
-            src={projects[currentIndex].image_url}
-            alt={projects[currentIndex].name}
-            className={`w-full h-full object-cover absolute transition-opacity duration-300 ${
-              isHovering ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <video
-            src={projects[currentIndex].video_url}
-            className={`w-full h-full object-cover absolute transition-opacity duration-300 ${
-              isHovering ? "opacity-100" : "opacity-0"
-            }`}
-            autoPlay
-            muted
-            loop
-          />
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={projects[currentIndex].image_url}
+              alt={projects[currentIndex].name}
+              className={`w-full h-full object-cover absolute transition-opacity duration-300 ${
+                isHovering ? "opacity-0" : "opacity-100"
+              }`}
+              loading="eager"
+            />
+            <video
+              src={projects[currentIndex].video_url}
+              className={`w-full h-full object-cover absolute transition-opacity duration-300 ${
+                isHovering ? "opacity-100" : "opacity-0"
+              }`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            />
+          </div>
         </div>
+
         <div className="flex flex-col justify-between p-4 sm:p-6 lg:p-8">
           <div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[teko] mb-4">
