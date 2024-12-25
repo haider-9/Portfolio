@@ -66,7 +66,8 @@ const App = () => {
   };
 
   return (
-    <div className="relative min-h-screen font-poppins text-white">
+    <div className="relative min-h-screen font-poppins text-white bg-black">
+      
       <BackgroundLines className="fixed inset-0 size-full overflow-hidden pointer-events-none" />
       <div className="container mx-auto relative z-10">
         <header>

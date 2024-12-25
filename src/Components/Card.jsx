@@ -33,7 +33,6 @@ const Card = () => {
     handleSlideChange((currentIndex - 1 + projects.length) % projects.length);
   };
 
-  // Rest of your component code...
 
   return (
     <div className="relative max-w-[90%] lg:max-w-7xl mx-auto text-white">
