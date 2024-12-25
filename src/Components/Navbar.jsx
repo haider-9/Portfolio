@@ -8,7 +8,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono] backdrop-blur-sm bg-white/5 rounded-xl border border-white/10 mt-4">
+    <nav className="flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono] mt-4">
       <div className="flex items-center flex-shrink-0 mr-6">
         <img
           src="assets/favicon.png"
