@@ -23,7 +23,9 @@ const Navbar = () => {
           className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white transition-all duration-300"
         >
           <svg
-            className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
+            className={`fill-current h-3 w-3 transition-transform duration-300 ${
+              isOpen ? "rotate-45" : ""
+            }`}
             viewBox="0 0 20 20"
           >
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -34,7 +36,9 @@ const Navbar = () => {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } w-full flex-grow lg:flex lg:items-center lg:w-auto transition-all duration-300`}
+        } w-full flex-grow lg:flex lg:items-center lg:w-auto transition-all duration-300 transform ease-in-out ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
       >
         <div className="lg:flex-grow">
           <ul className="flex flex-col lg:flex-row lg:gap-8 list-none lg:ml-auto">

@@ -33,17 +33,14 @@ const Card = () => {
     handleSlideChange((currentIndex - 1 + projects.length) % projects.length);
   };
 
-
   return (
     <div className="relative max-w-[90%] lg:max-w-7xl mx-auto text-white">
       <div
-        className={`grid md:grid-cols-2 gap-8 mx-auto p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 
-        transition-all duration-500 transform
-        ${
-          isAnimating
-            ? "scale-95 blur-sm opacity-0"
-            : "scale-100 blur-0 opacity-100"
-        }`}
+        className={`grid grid-cols-1 md:grid-cols-2 gap-3 mx-auto p-3 sm:p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 
+  transition-all duration-500 transform
+  ${
+    isAnimating ? "scale-95 blur-sm opacity-0" : "scale-100 blur-0 opacity-100"
+  }`}
       >
         <div
           className="overflow-hidden rounded-xl h-[300px] sm:h-[400px] lg:h-[500px] relative w-full"
@@ -126,12 +123,12 @@ const Card = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-6 mt-6">
+          <div className="flex flex-col xs:flex-row justify-center gap-3 xs:gap-6 mt-6">
             <a
               href={projects[currentIndex].code_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform  hover:shadow-lg hover:shadow-purple-500/20"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform hover:shadow-lg hover:shadow-purple-500/20"
             >
               <FaGithub className="text-xl" />
               <span>Code</span>
@@ -140,7 +137,7 @@ const Card = () => {
               href={projects[currentIndex].preview_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform  hover:shadow-lg hover:shadow-purple-500/20"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform hover:shadow-lg hover:shadow-purple-500/20"
             >
               <FaLink className="text-xl" />
               <span>Live Demo</span>
