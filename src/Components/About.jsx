@@ -1,40 +1,59 @@
 const AboutMe = () => {
   return (
-    <div className="w-11/12 mx-auto p-6 mt-6 text-white">
-      <section className="mb-12">
-        <h2 className="text-5xl font-[teko] text-center mb-8">About Me</h2>
-        <div className="flex flex-col md:flex-row gap-10">
-          <div className="relative h-72 min-w-[200px] md:w-1/3 w-full group *:transition-all *:duration-300">
+    <div className="w-11/12 mx-auto p-12 mt-16">
+      <section className="relative">
+        <h2 className="text-5xl font-[teko] text-center mb-16 ">
+          About Me
+        </h2>
+        
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+          <div className="relative h-96 min-w-[300px] md:w-1/3 w-full group perspective-[1000px] cursor-pointer">
             <img
               src="assets/zoro-v-king.jpg"
               alt="anime"
-              className="w-64 object-cover object-center rounded-xl border-[10px] border-gray-200 rotate-6 z-10 absolute top-1/3 right-8 group-hover:w-52 group-hover:translate-y-14"
+              className="w-72 object-cover object-center rounded-2xl border-4 border-white/10 rotate-6 z-30 absolute top-1/3 right-8 
+              transition-all duration-700 
+              group-hover:rotate-0 group-hover:scale-110 group-hover:translate-x-12 group-hover:translate-y-8
+              group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             />
             <img
               src="assets/fakhar-zaman.png"
               alt="cricket"
-              className="w-64 aspect-video object-cover object-top rounded-xl border-[10px] border-gray-200 -rotate-6 absolute bottom-1/3 group-hover:w-52 group-hover:-translate-y-12 group-hover:md:-translate-y-28"
+              className="w-72 aspect-video object-cover object-top rounded-2xl border-4 border-white/10 -rotate-6 z-20 absolute bottom-1/3 
+              transition-all duration-700 
+              group-hover:rotate-0 group-hover:scale-110 group-hover:-translate-x-12 group-hover:-translate-y-8
+              group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             />
             <img
               src="assets/gargantua.webp"
               alt="astronomy"
-              className="w-64 aspect-video object-cover object-top rounded-xl border-[10px] border-gray-200 -rotate-12 absolute top-1/3 right-3 group-hover:w-52 sm:left-1/4 md:left-0 -translate-y-10 group-hover:rotate-6 group-hover:translate-14"
+              className="w-72 aspect-video object-cover object-top rounded-2xl border-4 border-white/10 -rotate-12 z-10 absolute top-0 right-0 
+              transition-all duration-700 
+              group-hover:rotate-0 group-hover:scale-110 group-hover:translate-x-2 group-hover:-translate-y-4
+              group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             />
-
           </div>
-          <p className="text-gray-300 text-xl max-w-[80ch] text-pretty">
-            Hi there! I'm an enthusiastic web developer with a passion
-            for creating dynamic and engaging websites. I love diving into the
-            latest technologies and trends to bring innovative ideas to life on
-            the web.
-            <div className="mt-5">
-              When I'm not coding, you can find me enjoying my favorite anime
-              series, playing cricket, exploring the wonders of astronomy, or
-              solving complex math problems. These interests inspire me to think
-              creatively and analytically in my work. Let's build something
-              amazing together! 😊
+          <div className="md:w-2/3">
+            <div className="space-y-8">
+              <p className="text-gray-200 text-xl leading-relaxed font-light">
+                Hi there! I'm an enthusiastic web developer with a passion
+                for creating dynamic and engaging websites. I love diving into the
+                latest technologies and trends to bring innovative ideas to life on
+                the web.
+              </p>
+              
+              <p className="text-gray-200 text-xl leading-relaxed font-light">
+                When I'm not coding, you can find me enjoying my favorite anime
+                series, playing cricket, exploring the wonders of astronomy, or
+                solving complex math problems. These interests inspire me to think
+                creatively and analytically in my work. Let's build something
+                amazing together! ✨
+              </p>
             </div>
-          </p>
+
+            
+          
+          </div>
         </div>
       </section>
     </div>

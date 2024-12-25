@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -8,91 +8,79 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav
-      className={`flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono]`}>
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        {/* <span className="font-semibold text-4xl tracking-tight">Haider</span> */}
-        <img src="assets/favicon.png" alt="" className="invert w-20" />
+    <nav className="flex items-center justify-between flex-wrap p-6 font-[JetBrains Mono] ">
+      <div className="flex items-center flex-shrink-0 mr-6">
+        <img src="assets/favicon.png" alt="Logo" className="invert w-16 hover:rotate-180 transition-all duration-500" />
       </div>
+
       <div className="block lg:hidden">
         <button
           onClick={toggleMenu}
-          className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white transition duration-300">
+          className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white transition-all duration-300"
+        >
           <svg
-            className={`fill-current h-3 w-3 ${
-              isOpen ? "hidden" : "inline-block"
-            }`}
+            className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
             viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path
-              fillRule="evenodd"
-              d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 6h14a1 1 0 010 2H3a1 1 0 010-2zm0 6h14a1 1 0 010 2H3a1 1 0 010-2z"
-              clipRule="evenodd"
-            />
+          >
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
-          <i
-            className={`fa fa-close ${isOpen ? "inline-block" : "hidden"}`}></i>
         </button>
       </div>
+
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } w-full flex-grow lg:flex lg:items-center lg:w-auto  mt-4 lg:mt-0 transition duration-300`}>
-        <div className="text-sm lg:flex-grow">
-          <ul className="flex flex-col gap-2 lg:gap-5 lg:flex-row list-none lg:ml-auto">
-            <li className="nav-item">
+        } w-full flex-grow lg:flex lg:items-center lg:w-auto transition-all duration-300`}
+      >
+        <div className="lg:flex-grow">
+          <ul className="flex flex-col lg:flex-row lg:gap-8 list-none lg:ml-auto">
+            <li>
               <a
                 href="#"
-                className="px-3 py-2 flex items-center text-lg uppercase  leading-snug text-white">
-                <i className="fa fa-house mr-2"></i>
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-purple-400 transition-colors duration-300"
+              >
                 Home
               </a>
             </li>
-            <li className="nav-item">
+            <li>
               <a
                 href="#skills"
-                className="px-3 py-2 flex items-center text-lg uppercase  leading-snug text-white">
-                <i className="fa fa-tools mr-2"></i>
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-purple-400 transition-colors duration-300"
+              >
                 Skills
               </a>
             </li>
-            <li className="nav-item">
+            <li>
               <a
                 href="#projects"
-                className="px-3 py-2 flex items-center text-lg uppercase  leading-snug text-white">
-                <i className="fas fa-project-diagram mr-2"></i>
-                My Projects
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-purple-400 transition-colors duration-300"
+              >
+                Projects
               </a>
             </li>
-            <li className="nav-item">
+            <li>
               <a
                 href="#about"
-                className="px-3 py-2 flex items-center text-lg uppercase  leading-snug text-white">
-                <i className="fa fa-info-circle mr-2"></i>
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-purple-400 transition-colors duration-300"
+              >
                 About
               </a>
             </li>
           </ul>
         </div>
-        <div className="my-5 lg:my-0 flex justify-center">
+        
+        <div className="mt-4 lg:mt-0">
           <a
             href="assets/HaiderCV.pdf"
             download
-
-            className="w-1/2 lg:w-full inline-block bg-zinc-700 hover:bg-zinc-500 text-white text-lg py-2 px-4 text-center rounded-lg focus:outline-none focus:shadow-outline transition duration-300 border border-zinc-400">
-            <span className="drop-shadow-[0_0_5px_#aaa]">
-
-
-              <i className="fa fa-download mr-2"></i>
-              Download CV
-            </span>
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-sm rounded-xl text-white/90 hover:text-white transition-all duration-300 transform  hover:shadow-lg hover:shadow-purple-500/20"
+          >
+            Download CV
           </a>
         </div>
       </div>
     </nav>
   );
 };
-
 
 export default Navbar;

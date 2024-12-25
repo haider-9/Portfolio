@@ -21,11 +21,6 @@ img {
   user-select: none;
 }
 
-html, body{
-    cursor: url("assets/cursor.svg") 16 16, auto;
-}
-
-
 
 nav ul a {
   position: relative;
