@@ -171,3 +171,20 @@ const Card = () => {
 };
 
 export default Card;
+
+// Add these buttons just before the closing div of the main container
+<div className="flex justify-center gap-4 mt-6 md:hidden">
+  <button
+    onClick={prevSlide}
+    className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+  >
+    <IoIosArrowBack size={20} />
+  </button>
+
+  <button
+    onClick={nextSlide}
+    className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+  >
+    <IoIosArrowForward size={20} />
+  </button>
+</div>

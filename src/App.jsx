@@ -89,7 +89,7 @@ const App = () => {
                 { url: "assets/CSS.svg", name: "CSS" },
                 { url: "assets/JS.svg", name: "JavaScript" },
                 { url: "assets/react.svg", name: "React" },
-                { url: "assets/tailwind.svg", name: "Tailwind" },
+                { url: "assets/tailwindcss.svg", name: "Tailwind" },
                 { url: "assets/GIT.svg", name: "GIT" },
               ].map((skill) => (
                 <div className="group flex justify-center" key={skill.name}>

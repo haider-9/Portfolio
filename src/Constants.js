@@ -24,7 +24,7 @@ export const projects = [
     tech_stack: [
       { url: "/assets/nextjs.svg", name: 'Next.js' },
       { url: "/assets/react.svg", name: 'React' },
-      { url: "/assets/tailwind.svg", name: 'Tailwind CSS' },
+      { url: "/assets/tailwindcss.svg", name: 'Tailwind CSS' },
     ]
   },
   {
@@ -38,7 +38,7 @@ export const projects = [
     tech_stack: [
       { url: "/assets/nextjs.svg", name: 'Next.js' },
       { url: "/assets/react.svg", name: 'React' },
-      { url: "/assets/tailwind.svg", name: 'Tailwind CSS' },
+      { url: "/assets/tailwindcss.svg", name: 'Tailwind CSS' },
     ]
   }
 ];
