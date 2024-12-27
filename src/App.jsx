@@ -67,7 +67,6 @@ const App = () => {
 
   return (
     <div className="relative min-h-screen font-poppins text-white bg-black">
-      
       <BackgroundLines className="fixed inset-0 size-full overflow-hidden pointer-events-none" />
       <div className="container mx-auto relative z-10">
         <header>
@@ -75,42 +74,57 @@ const App = () => {
         </header>
         <main className="p-4">
           <Mainsec />
-          
-          <section className="mt-16 flex flex-col items-center py-16" id="skills">
-            <div className="space-y-8 mb-16">
-              <h2 className="text-5xl font-[teko] text-center text-white">Skills</h2>
-              <p className="text-xl text-center text-gray-300 font-light tracking-wide">
-                Technologies I've mastered along the journey
-              </p>
-            </div>
+          <section className="mt-16 py-16" id="skills">
+  <div className="text-center mb-12">
+    <h2 className="text-5xl font-[teko] text-center text-white"
+                >
+      Tech Stack
+    </h2>
+  </div>
 
-            <div className="container mx-auto px-4 py-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12">
-                {[
-                  { url: "assets/HTML.svg", name: "HTML" },
-                  { url: "assets/CSS.svg", name: "CSS" },
-                  { url: "assets/JS.svg", name: "JavaScript" },
-                  { url: "assets/react.svg", name: "React" },
-                  { url: "assets/tailwindcss.svg", name: "Tailwind" },
-                  { url: "assets/GIT.svg", name: "GIT" },
-                ].map((skill) => (
-                  <div className="group flex justify-center" key={skill.name}>
-                    <Stack
-                      img_url={skill.url}
-                      name={skill.name}
-                      alt={skill.name}
-                      className="transform transition-all duration-500 hover:scale-125 hover:-translate-y-2 hover:drop-shadow-[0_0_2em_#646cffaa]"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {[
+        { url: "assets/HTML.svg", name: "HTML" },
+        { url: "assets/CSS.svg", name: "CSS" },
+        { url: "assets/JS.svg", name: "JavaScript" },
+        { url: "assets/react.svg", name: "React" },
+        { url: "assets/tailwindcss.svg", name: "Tailwind" },
+        { url: "assets/GIT.svg", name: "Git" }
+      ].map((tech) => (
+        <div 
+          key={tech.name}
+          className="flex flex-col items-center p-6 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
+        >
+          <img 
+            src={tech.url} 
+            alt={tech.name}
+            className="w-12 h-12 mb-4 hover:scale-110 transition-transform duration-300"
+          />
+          <span className="text-gray-300">{tech.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
           <section className="flex flex-col items-center py-5">
             <div className="space-y-8 mb-12">
-              <h2 className="text-5xl font-[teko] text-center text-white" id="projects">Projects</h2>
-              <p className="text-xl text-center">Projects I've worked on recently</p>
+              <h2
+                className="text-5xl font-[teko] text-center text-white"
+                id="projects"
+              >
+                Projects
+              </h2>
+              <p className="text-xl text-center">
+                Projects I've worked on recently
+              </p>
             </div>
             <Card />
           </section>
@@ -130,7 +144,9 @@ const App = () => {
             <div className="max-w-[80ch]">
               {showFact && fact && (
                 <div className="fact-container mt-4 p-6 bg-white/5 backdrop-blur-md rounded-xl transform transition-all duration-500">
-                  <p className="text-lg text-gray-200 leading-relaxed mb-4">{fact.text}</p>
+                  <p className="text-lg text-gray-200 leading-relaxed mb-4">
+                    {fact.text}
+                  </p>
                   <div className="flex justify-end">
                     <a
                       href={fact.source_url}

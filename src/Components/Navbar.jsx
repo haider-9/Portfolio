@@ -34,10 +34,10 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } w-full flex-grow lg:flex lg:items-center lg:w-auto transition-all duration-300 transform ease-in-out ${
-          isOpen ? "opacity-100" : "opacity-0"
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto transform ease-in-out transition-all duration-300 ${
+          isOpen 
+            ? "max-h-[500px] opacity-100 translate-y-0" 
+            : "max-h-0 lg:max-h-[500px] lg:opacity-100 opacity-0 overflow-hidden"
         }`}
       >
         <div className="lg:flex-grow">
