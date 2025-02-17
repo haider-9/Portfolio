@@ -2,9 +2,10 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CursorEffect from "./components/CursorEffect"; // Import the glow effect
+import { GradientBg } from "./components/ui/Gradientbg";
 
 export const metadata = {
-  title: "Haider Ahmad",
+  title: "Haider • Portfolio",
   description:
     "Hello! I'm Haider, a passionate computer science student with a keen interest in web development. Welcome to my corner of the web where I share my projects, ideas, and insights into the ever-evolving world of technology.",
 };
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         {/* Background Grid Wrapper */}
         <div className="relative overflow-hidden">
           <CursorEffect /> {/* Cursor Effect inside the grid only */}
+          <GradientBg/>
           
           <div
             className="relative z-10 animate-[grid_20s_linear_infinite] 
