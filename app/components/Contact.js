@@ -1,7 +1,6 @@
 "use client"
 
-import FlipLink from "./ui/FilpLink"
-import { ExternalLink, Mail, Phone } from "lucide-react";
+import FlipLink from "./ui/FlipLink"
 import { motion } from "framer-motion";
 
 const Contact = () => {

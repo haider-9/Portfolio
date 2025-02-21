@@ -19,15 +19,8 @@ export default function RootLayout({ children }) {
         {/* Background Grid Wrapper */}
         <div className="relative overflow-hidden">
           <CursorEffect /> {/* Cursor Effect inside the grid only */}
-          <GradientBg/>
-          
-          <div
-            className="relative z-10 animate-[grid_20s_linear_infinite] 
-            bg-[linear-gradient(rgba(75,75,75,0.05)_1px,transparent_2px),linear-gradient(90deg,rgba(75,75,75,0.05)_2px,transparent_1px)] 
-            bg-[size:100px_100px] min-h-screen"
-          >
-            {children}
-          </div>
+          <GradientBg />
+          <div>{children}</div>
         </div>
 
         <Footer />

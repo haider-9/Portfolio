@@ -102,99 +102,112 @@ const Projects = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
- 
+    <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden">
+      <motion.div
+        style={{ opacity }}
+        className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"
+      />
 
-      <motion.div style={{ opacity }} className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 mb-12 sm:mb-16 md:mb-20 text-center relative z-10"
+        className="container mx-auto px-6 mb-10 sm:mb-14 md:mb-18 text-center relative z-10"
       >
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-zinc-200 tracking-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-zinc-200 tracking-tight">
           <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
             Featured Projects
           </span>
         </h1>
-        <p className="text-zinc-400 text-lg sm:text-xl mt-4 font-light">
+        <p className="text-zinc-400 text-base sm:text-lg mt-3 sm:mt-5 font-light">
           Explore some of my recent work
         </p>
       </motion.div>
 
       {projectData.map((project, index) => (
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           key={project.id}
-          className="container mx-auto px-4 mb-20 sm:mb-32 md:mb-40"
+          className="container mx-auto px-6 mb-16 sm:mb-24 md:mb-32"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 150, damping: 12 }}
+          viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
+            <div
               className={`text-zinc-200 space-y-6 sm:space-y-8 ${
                 index % 2 === 0 ? "lg:order-1" : "lg:order-2"
               }`}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight group">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight group">
                 <span className="bg-left-bottom bg-gradient-to-r from-blue-600 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                   {project.title}
                 </span>
               </h2>
-              <motion.div 
-                whileHover={{ y: -5 }}
-                className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 rounded-xl p-4 sm:p-6 shadow-lg hover:border-blue-500/30 transition-all duration-300"
-              >
-                <p className="text-zinc-400 text-base sm:text-lg font-light leading-relaxed">
+              <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 rounded-xl p-4 sm:p-6">
+                <p className="text-zinc-400 text-sm sm:text-base md:text-lg font-light leading-relaxed">
                   {project.description}
                 </p>
-              </motion.div>
-              <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
-                {project.technologies.map((tech) => (
+              </div>
+
+              {/* Technology Stack */}
+              <motion.div
+                className="flex flex-wrap gap-3 sm:gap-4 pt-4"
+                initial="hidden"
+                whileInView="visible"
+                transition={{ staggerChildren: 0.2 }}
+                viewport={{ once: true }}
+              >
+                {project.technologies.map((tech, index) => (
                   <motion.span
                     key={tech}
-                    whileHover={{ y: -2 }}
-                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-black backdrop-blur-sm  rounded-full  text-sm shadow-lg"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-black/50 backdrop-blur-sm border border-zinc-800 rounded-full text-zinc-400 text-xs sm:text-sm"
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.5 },
+                      },
+                    }}
                   >
-                    <span className="text-base sm:text-lg">
+                    <span className="hidden sm:block text-2xl">
                       {techIcons[tech]}
                     </span>
-                    {tech}
+                    <span className="block sm:hidden">{tech}</span>
                   </motion.span>
                 ))}
-              </div>
+              </motion.div>
+
+              {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <a
                   href={project.previewLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full tracking-wide text-sm sm:text-base shadow-lg hover:shadow-blue-500/50 hover:translate-y-[-2px] transition-all duration-300"
+                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 text-white rounded-lg text-sm sm:text-base shadow-md transition-transform transform hover:scale-105"
                 >
-                  <span>Live Demo</span>
+                  Live Demo
                 </a>
                 <a
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 bg-zinc-800 text-white rounded-full tracking-wide text-sm sm:text-base shadow-lg hover:shadow-zinc-700/50 hover:translate-y-[-2px] transition-all duration-300"
+                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-sm sm:text-base shadow-md transition-transform transform hover:scale-105"
                 >
                   <FaGithub className="text-lg sm:text-xl" />
-                  <span>Source Code</span>
+                  <span className="ml-2">Source Code</span>
                 </a>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Project Image with animation */}
             <motion.div
-              initial={{ opacity: 0, scale: 1.2 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className={`relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl group w-full h-[300px] sm:h-[400px] md:h-[450px] ${
+              viewport={{ once: true }}
+              className={`relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl group w-full h-[250px] sm:h-[350px] md:h-[400px] ${
                 index % 2 === 0 ? "lg:order-2" : "lg:order-1"
               }`}
             >
@@ -203,15 +216,13 @@ const Projects = () => {
                 alt={project.title}
                 layout="fill"
                 objectFit="cover"
-                className="transform transition-all duration-700 rotate-2 group-hover:rotate-0 group-hover:scale-105"
+                className="transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-50 group-hover:opacity-30 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-40 group-hover:opacity-25 transition-opacity duration-500" />
             </motion.div>
           </div>
         </motion.div>
       ))}
-
       <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
     </section>
   );
