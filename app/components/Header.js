@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Pacifico } from "next/font/google";
@@ -11,21 +11,8 @@ const pacifico = Pacifico({
 });
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -49,12 +36,7 @@ const Header = () => {
 
   return (
     <header
-      className={`relative w-full z-50 transition-all duration-300
-      ${
-        isScrolled
-          ? "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl shadow-sm"
-          : "bg-transparent"
-      }`}
+      className={`relative w-full z-50 transition-all duration-300 bg-transparent`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto p-6">
         <Link
@@ -103,8 +85,8 @@ const Header = () => {
                     ${
                       pathname ===
                       (item === "Home" ? "/" : `/${item.toLowerCase()}`)
-                        ? "bg-blue-600 text-white hover:bg-blue-700"
-                        : "text-slate-700 dark:text-slate-200 hover:bg-gray-100/60 dark:hover:bg-gray-800/60"
+                        ? "bg-slate-400/50 text-white hover:bg-slate-400"
+                        : "text-slate-400 dark:text-slate-200 hover:bg-gray-100/60 dark:hover:bg-gray-800/60"
                     }`}
                 >
                   {item}
@@ -137,8 +119,7 @@ const Header = () => {
         />
 
         <div
-          className={`fixed top-0 right-0 h-screen w-[300px] 
-                    bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl 
+          className={`fixed top-0 right-0 h-screen w-[300px] backdrop-blur-xl 
                     border-l border-slate-200/20 dark:border-slate-800/20
                     shadow-[0_0_40px_rgba(0,0,0,0.1)] transform transition-all duration-500 ease-out-expo lg:hidden
                     ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -148,7 +129,7 @@ const Header = () => {
               <div
                 className={`${pacifico.className} text-3xl text-slate-800 dark:text-slate-200 mb-12`}
               >
-                Menu
+                Haider
               </div>
               <nav>
                 <ul className="space-y-2">
@@ -171,8 +152,8 @@ const Header = () => {
                           ${
                             pathname ===
                             (item === "Home" ? "/" : `/${item.toLowerCase()}`)
-                              ? "bg-indigo-500 text-white"
-                              : "text-slate-700 dark:text-slate-200 hover:bg-gray-100/60 dark:hover:bg-gray-800/60"
+                              ? "bg-slate-400/50 text-white"
+                              : "text-slate-400/50 dark:text-slate-200 hover:bg-gray-100/60 dark:hover:bg-gray-400/60"
                           } transition-all duration-300`}
                         onClick={toggleSidebar}
                       >
