@@ -61,7 +61,7 @@ const HeroSection = () => {
         >
           <div className="relative w-[280px] h-[280px] lg:w-[450px] lg:h-[450px] mx-auto">
             <Image
-              src="/haider.jpg"
+              src="/haider.png"
               alt="Profile Image"
               fill
               className="object-cover transition-all duration-300 rounded-lg"

@@ -1,16 +1,26 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaReact, FaGithub } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiGraphql } from "react-icons/si";
-
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiGraphql,
+  SiTailwindcss,
+  SiExpress,
+  SiNodedotjs,
+  SiMongodb,
+} from "react-icons/si";
 const techIcons = {
   React: <FaReact />,
   "Next.js": <SiNextdotjs />,
   TypeScript: <SiTypescript />,
   GraphQL: <SiGraphql />,
+  Tailwind: <SiTailwindcss />,
+  Express: <SiExpress />,
+  "Node.js": <SiNodedotjs />,
+  MongoDB: <SiMongodb />,
 };
 
 const projectData = [
@@ -20,7 +30,15 @@ const projectData = [
     description:
       "Welcome to AnimaDom, your ultimate destination for everything anime! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of anime",
     image: "/assets/projects/Animadom.png",
-    technologies: ["Next.js", "GraphQL", "React"],
+    technologies: [
+      "Express",
+      "GraphQL",
+      "React",
+      "Tailwind",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+    ],
     githubLink: "https://github.com/haider-9/Animadom",
     previewLink: "https://animadom.vercel.app",
     year: "2024",
@@ -31,18 +49,20 @@ const projectData = [
     description:
       "Welcome to MangaDom, your ultimate destination for everything manga! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of manga",
     image: "/assets/projects/Mangadom.png",
-    technologies: ["Next.js", "GraphQL", "React"],
+    technologies: ["Next.js", "GraphQL", "React", "Tailwind"],
     githubLink: "https://github.com/haider-9/MangaDom",
     previewLink: "https://mangadom.vercel.app",
     year: "2024",
   },
 ];
-
 const Projects = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+
   return (
-    <section className="relative py-16 sm:py-24 md:py-32">
+    <section className="relative py-12 sm:py-20 md:py-28 overflow-hidden">
       <motion.div
-        style={{ opacity:1 }}
+        style={{ opacity }}
         className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"
       />
 
@@ -99,7 +119,7 @@ const Projects = () => {
                 {project.technologies.map((tech, index) => (
                   <motion.span
                     key={tech}
-                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-black/50 backdrop-blur-sm border border-zinc-800 rounded-full text-zinc-400 text-xs sm:text-sm"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-black/50 backdrop-blur-sm border border-zinc-800 rounded-full cursor-pointer text-zinc-400 text-xs sm:text-sm relative group"
                     variants={{
                       hidden: { opacity: 0, y: 10 },
                       visible: {
@@ -108,11 +128,20 @@ const Projects = () => {
                         transition: { duration: 0.5 },
                       },
                     }}
+                    whileHover={{ scale: 1.05 }}
                   >
                     <span className="hidden sm:block text-2xl">
                       {techIcons[tech]}
                     </span>
                     <span className="block sm:hidden">{tech}</span>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 pointer-events-none">
+                      <div className="relative px-4 py-2 text-xs bg-gradient-to-r from-zinc-600/90 to-zinc-400/90 text-white rounded-lg whitespace-nowrap shadow-lg backdrop-blur-sm border border-zinc-500/30 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
+                        <div className="flex items-center justify-center gap-2">
+                          <span className="font-medium">{tech}</span>
+                        </div>
+                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 bg-gradient-to-br from-zinc-600 to-zinc-400"></div>
+                      </div>
+                    </div>
                   </motion.span>
                 ))}
               </motion.div>
@@ -161,7 +190,6 @@ const Projects = () => {
           </div>
         </motion.div>
       ))}
-
       <div className="text-center mt-12 sm:mt-16 md:mt-20">
         <Link
           href="/projects"
@@ -183,7 +211,6 @@ const Projects = () => {
           </svg>
         </Link>
       </div>
-
       <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
     </section>
   );
