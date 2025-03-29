@@ -2,71 +2,99 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const skills = ["Frontend Development", "React/Next.js", "UI/UX Design", "Backend Integration"];
+  
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-12 px-6 text-center lg:text-left">
-      <div className="container mx-auto lg:ml-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
-        
+    <section className="relative min-h-screen flex items-center justify-center py-12 px-6 ">
+      {/* Background elements */}
+     
+      
+      <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="text-zinc-200 space-y-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-zinc-200 space-y-8 lg:col-span-7"
         >
-          <h1 className="text-4xl lg:text-6xl font-light tracking-tight">
-            Haider Ahmad
-          </h1>
-          <p className="text-zinc-400 text-xl lg:text-2xl font-light">
-            Computer Scientist
+          <div className="space-y-3">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="inline-block px-4 py-1.5 bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 rounded-full text-zinc-400 text-sm"
+            >
+              Computer Scientist & Web Developer
+            </motion.div>
+            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-400">
+              Haider Ahmad
+            </h1>
+          </div>
+          
+          <p className="text-zinc-400 text-xl leading-relaxed max-w-2xl">
+            I craft elegant digital experiences through modern frameworks and clean code architecture, 
+            turning complex problems into intuitive solutions.
           </p>
-          <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-            {["Website Development", "Development", "Strategy"].map((skill) => (
-              <span
+
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill, index) => (
+              <motion.span
                 key={skill}
-                className="px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded text-zinc-400 text-sm"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                className="px-4 py-2 bg-zinc-800/40 backdrop-blur-sm border border-zinc-700/50 rounded-full text-zinc-300 text-sm"
               >
                 {skill}
-              </span>
+              </motion.span>
             ))}
           </div>
 
-          <p className="text-zinc-400 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Specializing in web development, I create elegant and performant
-            digital solutions through modern frameworks and clean code
-            architecture.
-          </p>
-
-          <div className="flex flex-col lg:flex-row gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Link
               href="/projects"
-              className="px-8 py-4 bg-black text-zinc-200 rounded-lg tracking-wide hover:bg-zinc-800 transition-all text-base w-full lg:w-auto text-center"
+              className="group px-8 py-4 bg-zinc-100 text-zinc-900 rounded-full font-medium tracking-wide hover:bg-white transition-all text-base w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
               View Projects
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </Link>
             <Link
-              href={"#contact"}
-              className="px-8 py-4 border border-zinc-800 text-zinc-300 rounded-lg tracking-wide hover:bg-zinc-700 transition-all text-base w-full lg:w-auto text-center"
+              href="#contact"
+              className="group px-8 py-4 border border-zinc-700 text-zinc-200 rounded-full font-medium tracking-wide hover:bg-zinc-800 transition-all text-base w-full sm:w-auto text-center"
             >
               Contact Me
             </Link>
           </div>
+          
+         
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative mt-8 lg:mt-0"
+          animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.95 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative lg:col-span-5"
         >
-          <div className="relative w-[280px] h-[280px] lg:w-[450px] lg:h-[450px] mx-auto">
-            <Image
-              src="/haider.png"
-              alt="Profile Image"
-              fill
-              className="object-cover transition-all duration-300 rounded-lg"
-              priority
-            />
+          <div className="relative w-[280px] h-[280px] lg:w-[400px] lg:h-[400px] mx-auto">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-emerald-500/20 blur-xl"></div>
+            <div className="absolute inset-0 rounded-2xl border border-zinc-700/50 overflow-hidden">
+              <Image
+                src="/haider.png"
+                alt="Haider Ahmad"
+                fill
+                className="object-cover transition-all duration-300 hover:scale-105"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
       </div>

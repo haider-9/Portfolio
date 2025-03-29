@@ -4,24 +4,13 @@ import { motion } from "framer-motion"
 export function GradientBg() {
   return (
     <>
-      <motion.div
-        className="fixed top-1/4 left-1/4 w-[500px] h-[500px] bg-zinc-400/20 rounded-full blur-[120px]"
-        animate={{
-          x: [0, 100, -100, 50, -50, 0],
-          y: [0, -100, 100, -50, 150, 0],
-          rotate: [0, 45, -45, 20, -20, 0]
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="fixed bottom-1/4 right-1/4 w-[400px] h-[400px] bg-zinc-600/20 rounded-full blur-[100px]"
-        animate={{
-          x: [0, -100, 100, -50, 150, 0],
-          y: [0, 100, -100, 150, -50, 0],
-          rotate: [0, -45, 45, -20, 20, 0]
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      />
+     <div className="bg-gradient-to-b from-zinc-950 to-zinc-900">
+     <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+     </div>
     </>
   )
 }

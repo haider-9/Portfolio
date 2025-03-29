@@ -1,7 +1,8 @@
 "use client";
+
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { FaReact, FaGithub } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -11,16 +12,39 @@ import {
   SiExpress,
   SiNodedotjs,
   SiMongodb,
+  SiReactrouter,
+  SiShadcnui,
+  SiRadixui,
 } from "react-icons/si";
+
+// Tech icons with colors
 const techIcons = {
-  React: <FaReact />,
-  "Next.js": <SiNextdotjs />,
-  TypeScript: <SiTypescript />,
-  GraphQL: <SiGraphql />,
-  Tailwind: <SiTailwindcss />,
-  Express: <SiExpress />,
-  "Node.js": <SiNodedotjs />,
-  MongoDB: <SiMongodb />,
+  React: <FaReact className="text-[#61DAFB]" />,
+  "Next.js": <SiNextdotjs className="text-white" />,
+  TypeScript: <SiTypescript className="text-[#3178C6]" />,
+  GraphQL: <SiGraphql className="text-[#E535AB]" />,
+  Tailwind: <SiTailwindcss className="text-[#38B2AC]" />,
+  Express: <SiExpress className="text-[#000000] dark:text-[#FFFFFF]" />,
+  "Node.js": <SiNodedotjs className="text-[#339933]" />,
+  MongoDB: <SiMongodb className="text-[#47A248]" />,
+  ReactRouter: <SiReactrouter className="text-[#CA4245]" />,
+  ShadcnUI: <SiShadcnui className="text-[#000000] dark:text-[#FFFFFF]" />,
+  RadixUI: <SiRadixui className="text-[#14B8A6]" />,
+};
+
+// Tech colors for background gradients
+const techColors = {
+  React: "from-[#61DAFB]/10 to-[#61DAFB]/5",
+  "Next.js": "from-gray-800/20 to-gray-900/10",
+  TypeScript: "from-[#3178C6]/10 to-[#3178C6]/5",
+  GraphQL: "from-[#E535AB]/10 to-[#E535AB]/5",
+  Tailwind: "from-[#38B2AC]/10 to-[#38B2AC]/5",
+  Express: "from-gray-700/10 to-gray-800/5",
+  "Node.js": "from-[#339933]/10 to-[#339933]/5",
+  MongoDB: "from-[#47A248]/10 to-[#47A248]/5",
+  ReactRouter: "from-[#CA4245]/10 to-[#CA4245]/5",
+  ShadcnUI: "from-gray-700/10 to-gray-800/5",
+  RadixUI: "from-[#14B8A6]/10 to-[#14B8A6]/5",
 };
 
 const projectData = [
@@ -38,6 +62,9 @@ const projectData = [
       "TypeScript",
       "Node.js",
       "MongoDB",
+      "ReactRouter",
+      "ShadcnUI",
+      "RadixUI",
     ],
     githubLink: "https://github.com/haider-9/Animadom",
     previewLink: "https://animadom.vercel.app",
@@ -49,11 +76,19 @@ const projectData = [
     description:
       "Welcome to MangaDom, your ultimate destination for everything manga! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of manga",
     image: "/assets/projects/Mangadom.png",
-    technologies: ["Next.js", "GraphQL", "React", "Tailwind"],
+    technologies: [
+      "Next.js",
+      "GraphQL",
+      "React",
+      "Tailwind",
+      "ShadcnUI",
+      "RadixUI",
+    ],
     githubLink: "https://github.com/haider-9/MangaDom",
     previewLink: "https://mangadom.vercel.app",
     year: "2024",
   },
+ 
 ];
 const Projects = () => {
   const { scrollYProgress } = useScroll();
@@ -108,18 +143,18 @@ const Projects = () => {
                 </p>
               </div>
 
-              {/* Technology Stack */}
+              {/* Redesigned Technology Stack */}
               <motion.div
                 className="flex flex-wrap gap-3 sm:gap-4 pt-4"
                 initial="hidden"
                 whileInView="visible"
-                transition={{ staggerChildren: 0.2 }}
+                transition={{ staggerChildren: 0.1 }}
                 viewport={{ once: true }}
               >
-                {project.technologies.map((tech, index) => (
-                  <motion.span
+                {project.technologies.map((tech) => (
+                  <motion.div
                     key={tech}
-                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-black/50 backdrop-blur-sm border border-zinc-800 rounded-full cursor-pointer text-zinc-400 text-xs sm:text-sm relative group"
+                    className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-br ${techColors[tech]} backdrop-blur-sm border border-zinc-800/50 rounded-full cursor-pointer text-zinc-200 text-xs sm:text-sm relative group transition-all duration-300 hover:shadow-lg`}
                     variants={{
                       hidden: { opacity: 0, y: 10 },
                       visible: {
@@ -128,43 +163,50 @@ const Projects = () => {
                         transition: { duration: 0.5 },
                       },
                     }}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: `0 0 15px 0 rgba(${
+                        tech === "React"
+                          ? "97, 218, 251"
+                          : tech === "TypeScript"
+                          ? "49, 120, 198"
+                          : "255, 255, 255"
+                      }, 0.3)`,
+                    }}
                   >
-                    <span className="hidden sm:block text-2xl">
+                    <span className="text-xl sm:text-2xl">
                       {techIcons[tech]}
                     </span>
-                    <span className="block sm:hidden">{tech}</span>
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 pointer-events-none">
-                      <div className="relative px-4 py-2 text-xs bg-gradient-to-r from-zinc-600/90 to-zinc-400/90 text-white rounded-lg whitespace-nowrap shadow-lg backdrop-blur-sm border border-zinc-500/30 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium">{tech}</span>
-                        </div>
-                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 bg-gradient-to-br from-zinc-600 to-zinc-400"></div>
-                      </div>
-                    </div>
-                  </motion.span>
+                    <span className="font-medium">{tech}</span>
+                  </motion.div>
                 ))}
               </motion.div>
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <a
+                <motion.a
                   href={project.previewLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 text-white rounded-lg text-sm sm:text-base shadow-md transition-transform transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-lg text-sm sm:text-base shadow-md"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   Live Demo
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-sm sm:text-base shadow-md transition-transform transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-5 sm:px-7 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-sm sm:text-base shadow-md"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <FaGithub className="text-lg sm:text-xl" />
                   <span className="ml-2">Source Code</span>
-                </a>
+                </motion.a>
               </div>
             </div>
 
@@ -186,6 +228,11 @@ const Projects = () => {
                 className="transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-40 group-hover:opacity-25 transition-opacity duration-500" />
+
+              {/* Year badge */}
+              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-white/20">
+                {project.year}
+              </div>
             </motion.div>
           </div>
         </motion.div>
