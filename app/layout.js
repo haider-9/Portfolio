@@ -15,14 +15,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-zinc-900 text-zinc-200 relative">
         <Header />
-
-        {/* Background Grid Wrapper */}
         <div className="relative overflow-hidden">
-          <CursorEffect /> {/* Cursor Effect inside the grid only */}
+          <CursorEffect /> 
           <GradientBg />
-          <div>{children}</div>
+          <div className="mt-20">{children}</div>
         </div>
-
         <Footer />
       </body>
     </html>

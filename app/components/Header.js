@@ -3,8 +3,16 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Pacifico } from "next/font/google";
-import { FaGithub, FaLinkedinIn, FaDownload, FaHome, FaProjectDiagram } from "react-icons/fa";
-
+import {
+  FaGithub,
+  FaLinkedinIn,
+ 
+  FaHome,
+  FaProjectDiagram,
+  FaExternalLinkAlt,
+  
+} from "react-icons/fa";
+import {FaCircleInfo} from "react-icons/fa6"
 const pacifico = Pacifico({
   weight: "400",
   subsets: ["latin"],
@@ -30,7 +38,8 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", icon: <FaHome size={16} /> },
-    { name: "Projects", icon: <FaProjectDiagram size={16} /> }
+    { name: "About", icon: <FaCircleInfo size={16} /> },
+    { name: "Projects", icon: <FaProjectDiagram size={16} /> },
   ];
 
   const socialIcons = [
@@ -49,14 +58,13 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
+        isScrolled
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
-        <Link
-          href="/"
-          className={`${pacifico.className} text-3xl `}
-        >
+        <Link href="/" className={`${pacifico.className} text-3xl `}>
           Haider a.
         </Link>
 
@@ -68,9 +76,21 @@ const Header = () => {
           aria-label="Toggle menu"
         >
           <div className="w-6 h-5 relative flex flex-col justify-between">
-            <span className={`block w-full h-0.5 bg-current transform transition-transform ${isSidebarOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-full h-0.5 bg-current transition-opacity ${isSidebarOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-full h-0.5 bg-current transform transition-transform ${isSidebarOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span
+              className={`block w-full h-0.5 bg-current transform transition-transform ${
+                isSidebarOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-0.5 bg-current transition-opacity ${
+                isSidebarOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-0.5 bg-current transform transition-transform ${
+                isSidebarOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
           </div>
         </button>
 
@@ -81,9 +101,11 @@ const Header = () => {
                 <Link
                   href={name === "Home" ? "/" : `/${name.toLowerCase()}`}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300
-                    ${pathname === (name === "Home" ? "/" : `/${name.toLowerCase()}`)
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    ${
+                      pathname ===
+                      (name === "Home" ? "/" : `/${name.toLowerCase()}`)
+                        ? "bg-white text-black"
+                        : "hover:text-black test-white hover:bg-slate-300"
                     }`}
                 >
                   {icon}
@@ -93,14 +115,14 @@ const Header = () => {
             ))}
           </ul>
           <a
-            href="/HaiderAhmadCV.pdf"
-            download
+            href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
+            target="_blank"
             className="flex items-center gap-2 px-6 py-2 rounded-lg 
-                     bg-gradient-to-r from-blue-600 to-purple-600 text-white
-                     hover:opacity-90 transform hover:scale-105
+                     bg-white text-black
+                     hover:opacity-90 
                      transition-all duration-300"
           >
-            <FaDownload size={16} />
+            <FaExternalLinkAlt size={16} />
             <span>Resume</span>
           </a>
         </nav>
@@ -108,7 +130,11 @@ const Header = () => {
         <div
           onClick={toggleSidebar}
           className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 lg:hidden
-                    ${isSidebarOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+                    ${
+                      isSidebarOpen
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
+                    }`}
         />
 
         <aside
@@ -117,7 +143,9 @@ const Header = () => {
                     ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="p-8 h-full flex flex-col">
-            <div className={`${pacifico.className} text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-12`}>
+            <div
+              className={`${pacifico.className} text-3xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-12`}
+            >
               Haider
             </div>
             <nav className="flex-1">
@@ -126,17 +154,23 @@ const Header = () => {
                   <li
                     key={name}
                     style={{
-                      transform: isSidebarOpen ? "translateX(0)" : "translateX(100px)",
+                      transform: isSidebarOpen
+                        ? "translateX(0)"
+                        : "translateX(100px)",
                       opacity: isSidebarOpen ? 1 : 0,
-                      transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`,
+                      transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${
+                        index * 0.1
+                      }s`,
                     }}
                   >
                     <Link
                       href={name === "Home" ? "/" : `/${name.toLowerCase()}`}
                       className={`flex items-center gap-4 p-4 rounded-xl
-                        ${pathname === (name === "Home" ? "/" : `/${name.toLowerCase()}`)
-                          ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                          : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        ${
+                          pathname ===
+                          (name === "Home" ? "/" : `/${name.toLowerCase()}`)
+                            ? "bg-white text-black"
+                            : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                         } transition-all duration-300`}
                       onClick={toggleSidebar}
                     >
@@ -147,19 +181,21 @@ const Header = () => {
                 ))}
                 <li
                   style={{
-                    transform: isSidebarOpen ? "translateX(0)" : "translateX(100px)",
+                    transform: isSidebarOpen
+                      ? "translateX(0)"
+                      : "translateX(100px)",
                     opacity: isSidebarOpen ? 1 : 0,
                     transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s`,
                   }}
                 >
                   <a
-                    href="/HaiderAhmadCV.pdf"
-                    download
+                    href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
+                    target="_blank"
                     className="flex items-center gap-4 p-4 rounded-xl
-                            bg-gradient-to-r from-blue-600 to-purple-600 text-white
+                            bg-white text-black
                             hover:opacity-90 transition-all duration-300"
                   >
-                    <FaDownload size={16} />
+                    <FaExternalLinkAlt size={16} />
                     <span className="text-lg">Resume</span>
                   </a>
                 </li>
@@ -176,8 +212,7 @@ const Header = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 
                               flex items-center justify-center
-                              hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white
-                              transition-all duration-300 transform hover:scale-110"
+                             "
                     aria-label={name}
                   >
                     {icon}
