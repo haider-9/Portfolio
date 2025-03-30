@@ -101,7 +101,7 @@ const AboutPage = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-5xl font-bold text-center mb-12 text-zinc-800 dark:text-zinc-100"
+        className="text-4xl sm:text-5xl font-bold text-center mb-12 text-zinc-100"
       >
         About Me
       </motion.h1>
@@ -113,8 +113,8 @@ const AboutPage = () => {
         transition={{ duration: 0.8 }}
         className="max-w-3xl lg:max-w-5xl mx-auto mb-20 px-4"
       >
-        <div className="relative rounded-3xl p-8 overflow-hidden bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800/30">
-          <h2 className="text-2xl font-bold mb-6 text-center text-blue-600 dark:text-blue-400">
+        <div className="relative rounded-3xl p-8 overflow-hidden  bg-blue-900/10 border  border-blue-800/30">
+          <h2 className="text-2xl font-bold mb-6 text-center  text-blue-400">
             Fun Facts About Me
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -124,10 +124,10 @@ const AboutPage = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-800/50 rounded-lg"
+                className="flex items-center gap-3 p-4  bg-zinc-800/50 rounded-lg"
               >
                 <span className="text-2xl">{fact.emoji}</span>
-                <p className="text-zinc-700 dark:text-zinc-300">{fact.text}</p>
+                <p className=" text-zinc-300">{fact.text}</p>
               </motion.div>
             ))}
           </div>
@@ -136,12 +136,12 @@ const AboutPage = () => {
 
       {/* Coding Timeline */}
       <motion.section className="max-w-3xl lg:max-w-5xl mx-auto mb-20 px-4">
-        <div className="relative rounded-3xl p-8 bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700">
-          <h2 className="text-2xl font-bold mb-8 text-center text-zinc-800 dark:text-zinc-100">
+        <div className="relative rounded-3xl p-8  bg-zinc-800/50 border :border-zinc-700">
+          <h2 className="text-2xl font-bold mb-8 text-center text-zinc-100">
             My Coding Journey
           </h2>
           <div className="space-y-8 relative">
-            <div className="absolute left-5 sm:left-1/2 h-full w-0.5 bg-blue-200 dark:bg-blue-900/50 transform -translate-x-1/2"></div>
+            <div className="absolute left-5 sm:left-1/2 h-full w-0.5 bg-blue-900/50 transform -translate-x-1/2"></div>
             
             {codingJourney.map((item, index) => (
               <motion.div
@@ -154,8 +154,8 @@ const AboutPage = () => {
                 <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white z-10">
                   {item.year}
                 </div>
-                <div className={`flex-1 p-4 rounded-lg ${index % 2 === 0 ? 'sm:text-left bg-blue-50 dark:bg-blue-900/10' : 'sm:text-right bg-zinc-100 dark:bg-zinc-700/30'}`}>
-                  <p className="font-medium text-zinc-800 dark:text-zinc-200">{item.event}</p>
+                <div className={`flex-1 p-4 rounded-lg ${index % 2 === 0 ? 'sm:text-left bg-blue-50 bg-blue-900/10' : 'sm:text-right bg-zinc-700/30'}`}>
+                  <p className="font-medium text-zinc-200">{item.event}</p>
                 </div>
               </motion.div>
             ))}
@@ -168,23 +168,23 @@ const AboutPage = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative rounded-xl p-6 sm:p-8 max-w-3xl lg:max-w-5xl mx-auto mb-20 bg-zinc-50 dark:bg-zinc-800/50 shadow-sm border border-zinc-200 dark:border-zinc-700"
+        className="relative rounded-xl p-6 sm:p-8 max-w-3xl lg:max-w-5xl mx-auto mb-20 bg-zinc-800/50 shadow-sm border border-zinc-700"
       >
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 rounded-full bg-zinc-100 dark:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 mb-6 sm:mb-8"
+          className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 rounded-full bg-zinc-700 border border-zinc-600 mb-6 sm:mb-8"
         >
-          <FaUniversity className="text-blue-500 dark:text-blue-400" />
-          <span className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300">{education.university}</span>
+          <FaUniversity className=" text-blue-400" />
+          <span className="text-sm sm:text-base text-zinc-300">{education.university}</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl font-bold mb-4 text-zinc-800 dark:text-zinc-100"
+          className="text-4xl sm:text-5xl font-bold mb-4 text-zinc-100"
         >
           Haider Ahmad
         </motion.h1>
@@ -193,7 +193,7 @@ const AboutPage = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base sm:text-lg max-w-2xl text-zinc-600 dark:text-zinc-400 mx-auto mb-6"
+          className="text-base sm:text-lg max-w-2xl text-zinc-400 mx-auto mb-6"
         >
           Full-stack developer by day, amateur astronomer by night, and perpetual learner 24/7. 
           I speak JavaScript, Python, and sarcasm fluently (though my TypeScript is still conversational).
@@ -203,7 +203,7 @@ const AboutPage = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base sm:text-lg max-w-2xl text-zinc-600 dark:text-zinc-400 mx-auto mb-10"
+          className="text-base sm:text-lg max-w-2xl text-zinc-400 mx-auto mb-10"
         >
           When I'm not wrestling with React hooks or debugging mysterious API errors, 
           you'll find me solving math problems for fun (yes, really), watching anime, 
@@ -223,11 +223,11 @@ const AboutPage = () => {
                 hidden: { opacity: 0, y: 10 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="text-center p-4 rounded-lg bg-white dark:bg-zinc-700/30 border border-zinc-200 dark:border-zinc-600/30"
+              className="text-center p-4 rounded-lg  bg-zinc-700/30 borderborder-zinc-600/30"
             >
               <div className="flex justify-center mb-2">{item.icon}</div>
-              <div className="text-2xl sm:text-3xl font-bold text-blue-500 dark:text-blue-400 mb-1">{item.number}</div>
-              <div className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">{item.label}</div>
+              <div className="text-2xl sm:text-3xl font-bold  text-blue-400 mb-1">{item.number}</div>
+              <div className="text-xs sm:text-sm  text-zinc-400">{item.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -240,8 +240,8 @@ const AboutPage = () => {
         transition={{ duration: 0.8 }}
         className="max-w-3xl lg:max-w-5xl mx-auto mb-20 px-4"
       >
-        <div className="relative rounded-3xl p-8 sm:p-10 overflow-hidden bg-zinc-50 dark:bg-zinc-800/50 shadow-sm border border-zinc-200 dark:border-zinc-700">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-zinc-800 dark:text-zinc-100">
+        <div className="relative rounded-3xl p-8 sm:p-10 overflow-hidden bg-zinc-50 bg-zinc-800/50 shadow-sm border  border-zinc-700">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center  text-zinc-100">
             Words of Wisdom
           </h2>
           
@@ -252,11 +252,11 @@ const AboutPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white dark:bg-zinc-700/50 border border-zinc-200 dark:border-zinc-600"
+                className="p-6 rounded-xl bg-white bg-zinc-700/50 border  border-zinc-600"
               >
-                <FaQuoteLeft className="text-zinc-300 dark:text-zinc-500 text-3xl mb-4" />
-                <p className="text-zinc-700 dark:text-zinc-300 italic mb-4 text-lg">"{quote.text}"</p>
-                <p className="text-right text-blue-500 dark:text-blue-400 font-medium">— {quote.author}</p>
+                <FaQuoteLeft className=" text-zinc-500 text-3xl mb-4" />
+                <p className=" text-zinc-300 italic mb-4 text-lg">"{quote.text}"</p>
+                <p className="text-right  text-blue-400 font-medium">— {quote.author}</p>
               </motion.div>
             ))}
           </div>
@@ -269,12 +269,12 @@ const AboutPage = () => {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-3xl lg:max-w-5xl mx-auto mb-20 px-4"
       >
-        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-zinc-50 dark:bg-zinc-800/50 shadow-sm border border-zinc-200 dark:border-zinc-700">
+        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-zinc-50 bg-zinc-800/50 shadow-sm border  border-zinc-700">
           <motion.h2
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-zinc-800 dark:text-zinc-100"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-zinc-100"
           >
             Passions & Interests
           </motion.h2>
@@ -292,14 +292,14 @@ const AboutPage = () => {
                   hidden: { opacity: 0, y: 10 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="group relative p-6 rounded-2xl bg-white dark:bg-zinc-700/50 flex items-start gap-4 shadow-sm border border-zinc-200 dark:border-zinc-600"
+                className="group relative p-6 rounded-2xl bg-white bg-zinc-700/50 flex items-start gap-4 shadow-sm border  border-zinc-600"
               >
-                <div className="text-zinc-700 dark:text-zinc-300 relative p-3 rounded-lg bg-zinc-100 dark:bg-zinc-600/50">
+                <div className=" text-zinc-300 relative p-3 rounded-lg bg-zinc-100 bg-zinc-600/50">
                   {icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100 mb-1">{name}</h3>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
+                  <h3 className="text-lg font-semibold  text-zinc-100 mb-1">{name}</h3>
+                  <p className="text-sm  text-zinc-400">{description}</p>
                 </div>
               </motion.div>
             ))}
@@ -309,13 +309,13 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 mb-12"
+            className="relative p-6 rounded-2xl bg-blue-50 bg-blue-900/20 border border-blue-200 border-blue-800/50 mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <FaChalkboardTeacher className="text-blue-500 dark:text-blue-400 text-xl" />
-              <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">Academic Journey</h3>
+              <FaChalkboardTeacher className=" text-blue-400 text-xl" />
+              <h3 className="text-xl font-semibold  text-zinc-100">Academic Journey</h3>
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400">{education.description}</p>
+            <p className=" text-zinc-400">{education.description}</p>
           </motion.div>
         </div>
       </motion.section>
@@ -326,12 +326,12 @@ const AboutPage = () => {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-3xl lg:max-w-5xl mx-auto mb-20 px-4"
       >
-        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-zinc-50 dark:bg-zinc-800/50 shadow-sm border border-zinc-200 dark:border-zinc-700">
+        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-zinc-50 bg-zinc-800/50 shadow-sm border  border-zinc-700">
           <motion.h2
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-zinc-800 dark:text-zinc-100"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center  text-zinc-100"
           >
             Technical Skills
           </motion.h2>
@@ -349,18 +349,18 @@ const AboutPage = () => {
                   hidden: { opacity: 0, y: 10 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="group p-4 sm:p-6 rounded-2xl bg-white dark:bg-zinc-700/50 flex flex-col items-center gap-3 sm:gap-4 shadow-sm border border-zinc-200 dark:border-zinc-600"
+                className="group p-4 sm:p-6 rounded-2xl bg-white bg-zinc-700/50 flex flex-col items-center gap-3 sm:gap-4 shadow-sm border  border-zinc-600"
               >
                 <div 
-                  className="text-zinc-700 dark:text-zinc-300 sm:group-hover:text-white relative"
+                  className=" text-zinc-300 sm:group-hover:text-white relative"
                   style={{ color }}
                 >
                   {icon}
                   <div className="block absolute -inset-2 rounded-full blur-lg sm:opacity-0 sm:group-hover:opacity-20 opacity-20 transition-opacity duration-300" style={{ backgroundColor: color }}></div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm sm:text-base font-medium text-zinc-800 dark:text-zinc-100 sm:group-hover:text-white">{name}</div>
-                  <div className="text-xs text-zinc-500 dark:text-zinc-400 sm:group-hover:text-zinc-300">{category}</div>
+                  <div className="text-sm sm:text-base font-medium  text-zinc-100 sm:group-hover:text-white">{name}</div>
+                  <div className="text-xs  text-zinc-400 sm:group-hover:text-zinc-300">{category}</div>
                 </div>
               </motion.div>
             ))}
@@ -375,21 +375,21 @@ const AboutPage = () => {
         transition={{ duration: 0.8 }}
         className="max-w-3xl lg:max-w-4xl mx-auto mb-20 px-4"
       >
-        <div className="relative rounded-3xl p-8 sm:p-10 overflow-hidden bg-zinc-50 dark:bg-zinc-800/50 shadow-sm border border-zinc-200 dark:border-zinc-700">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-zinc-800 dark:text-zinc-100">
+        <div className="relative rounded-3xl p-8 sm:p-10 overflow-hidden bg-zinc-50 bg-zinc-800/50 shadow-sm border  border-zinc-700">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center  text-zinc-100">
             My Development Philosophy
           </h2>
           
-          <div className="space-y-6 text-zinc-700 dark:text-zinc-300">
+          <div className="space-y-6  text-zinc-300">
             <p className="leading-relaxed">
               I believe in writing code so clean it could pass a white-glove test. 
               My components are more organized than my sock drawer (which isn't saying much).
             </p>
             
-            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p className="font-medium text-blue-500 dark:text-blue-400 mb-1">Hazrat Ali (RA) said:</p>
+            <div className="p-4 bg-blue-50 bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p className="font-medium  text-blue-400 mb-1">Hazrat Ali (RA) said:</p>
               <p className="italic">"Do not let your difficulties fill you with anxiety; after all, it is only in the darkest nights that stars shine more brightly."</p>
-              <p className="mt-2 text-sm text-blue-600 dark:text-blue-300">(This gets me through tough debugging sessions)</p>
+              <p className="mt-2 text-sm  text-blue-300">(This gets me through tough debugging sessions)</p>
             </div>
 
             <p className="leading-relaxed">
@@ -403,7 +403,7 @@ const AboutPage = () => {
             </p>
 
             <p className="leading-relaxed">
-              In the words of the Prophet Muhammad (PBUH): <span className="italic text-blue-500 dark:text-blue-400">"The best richness is the richness of the soul."</span> 
+              In the words of the Prophet Muhammad (PBUH): <span className="italic text-blue-400">"The best richness is the richness of the soul."</span> 
               I strive to build applications that enrich lives, not just fulfill requirements.
             </p>
           </div>

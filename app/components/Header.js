@@ -59,7 +59,7 @@ const Header = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg"
+          ? "bg-slate-900/80 backdrop-blur-lg shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -69,8 +69,8 @@ const Header = () => {
         </Link>
 
         <button
-          className={`lg:hidden z-50 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 
-                    hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors
+          className={`lg:hidden z-50 p-2 rounded-lg :bg-slate-800 
+                    hover:bg-slate-700 transition-colors
                     ${isSidebarOpen ? "fixed right-6" : ""}`}
           onClick={toggleSidebar}
           aria-label="Toggle menu"
@@ -138,7 +138,7 @@ const Header = () => {
         />
 
         <aside
-          className={`fixed top-0 right-0 h-screen w-80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl
+          className={`fixed top-0 right-0 h-screen w-80 bg-slate-900/90 backdrop-blur-xl
                     shadow-2xl transform transition-all duration-500 ease-out-expo lg:hidden
                     ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}`}
         >
@@ -170,7 +170,7 @@ const Header = () => {
                           pathname ===
                           (name === "Home" ? "/" : `/${name.toLowerCase()}`)
                             ? "bg-white text-black"
-                            : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                            : "text-slate-300 hover:bg-slate-800"
                         } transition-all duration-300`}
                       onClick={toggleSidebar}
                     >
@@ -210,7 +210,7 @@ const Header = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 
+                    className="w-12 h-12 rounded-xl bg-slate-800 
                               flex items-center justify-center
                              "
                     aria-label={name}
@@ -219,7 +219,7 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
-              <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+              <p className="text-center text-sm text-slate-400">
                 © {new Date().getFullYear()} Haider Ahmad
               </p>
             </div>
