@@ -111,7 +111,7 @@ const projectData = [
     id: 4,
     title: "Voyager",
     description:
-      "Welcome to MangaDom, your ultimate destination for everything manga! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of manga",
+      "Voyager is a modern travel experience platform designed to help users discover, plan, and share their travel adventures. With an intuitive interface and comprehensive features, Voyager makes travel planning seamless and enjoyable.",
     image: "/assets/projects/Voyager.png",
     technologies: [
       "Express",
@@ -186,8 +186,9 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden ">
-      <div className="absolute inset-0 overflow-hidden opacity-20">
+    <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-blue-900/10 blur-xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-indigo-900/10 blur-xl"></div>
       </div>
@@ -214,9 +215,9 @@ const Projects = () => {
         </p>
       </motion.div>
 
-      {/* Project Grid */}
+      {/* Project Grid - Using will-change for better performance */}
       <div className="container mx-auto px-6 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 will-change-transform">
           {projectData.map((project) => (
             <ProjectCard
               key={project.id}
@@ -245,124 +246,78 @@ const Projects = () => {
 const ProjectCard = ({ project, setSelectedProject }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{
-        type: "spring",
-        stiffness: 150,
-        damping: 15,
-        mass: 0.5,
+        opacity: { duration: 0.5, ease: "easeOut" },
+        y: {
+          type: "spring",
+          stiffness: 300, // Increased stiffness for snappier animation
+          damping: 15,
+          mass: 0.5, // Reduced mass for faster response
+        },
       }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="group relative bg-zinc-900/30 backdrop-blur-sm border border-zinc-800/30 rounded-xl overflow-hidden h-[420px] flex flex-col hover:border-zinc-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ease-out"
+      viewport={{ once: true, margin: "100px" }} // Increased margin to trigger earlier
+      className="group relative bg-zinc-900/30 backdrop-blur-sm border border-zinc-800/30 rounded-xl overflow-hidden h-[420px] flex flex-col hover:border-zinc-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ease-out will-change-transform"
     >
-      {/* Project Image */}
+      {/* Image Container - Using priority for above-the-fold images */}
       <div className="relative h-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-zinc-900/30 z-10" />
         <motion.div
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.3, ease: "easeOut" }} // Simplified easing
+          className="h-full w-full"
         >
           <Image
             src={project.image}
             alt={project.title}
-            layout="fill"
-            objectFit="cover"
+            width={400}
+            height={160}
+            quality={75}
+            className="object-cover w-full h-full"
+            priority={project.id <= 3} // Only prioritize first few images
           />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-          viewport={{ once: true }}
-          className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full border border-white/10 z-20"
-        >
+        <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full border border-white/10 z-20">
           {project.year}
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.3 }}
-          viewport={{ once: true }}
-          className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full border border-white/10 z-20"
-        >
+        </div>
+        <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full border border-white/10 z-20">
           {project.category}
-        </motion.div>
+        </div>
       </div>
 
       {/* Project Content */}
       <div className="flex flex-col flex-grow p-5 space-y-4">
-        <motion.h3
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          viewport={{ once: true }}
-          className="text-xl font-semibold text-zinc-200 group-hover:text-blue-400 transition-colors duration-300"
-        >
+        <h3 className="text-xl font-semibold text-zinc-200 group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
-        </motion.h3>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          viewport={{ once: true }}
-          className="text-zinc-400 text-sm line-clamp-3 flex-grow"
-        >
+        </h3>
+        <p className="text-zinc-400 text-sm line-clamp-3 flex-grow">
           {project.description}
-        </motion.p>
+        </p>
 
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.4,
-            duration: 0.4,
-            staggerChildren: 0.05,
-            when: "beforeChildren",
-          }}
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-2"
-        >
-          {project.technologies.slice(0, 4).map((tech, index) => (
-            <motion.span
+        {/* Tech Stack - Simplified animations */}
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.slice(0, 4).map((tech) => (
+            <span
               key={tech}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 + index * 0.05, duration: 0.3 }}
-              viewport={{ once: true }}
               className={`flex items-center gap-1 px-2 py-1 bg-gradient-to-br ${techColors[tech]} backdrop-blur-sm border border-zinc-800/30 rounded-md text-zinc-300 text-xs`}
             >
               <span className="text-sm">{techIcons[tech]}</span>
               <span className="hidden sm:inline">{tech}</span>
-            </motion.span>
+            </span>
           ))}
           {project.technologies.length > 4 && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.3 }}
-              viewport={{ once: true }}
-              className="px-2 py-1 bg-zinc-800/30 border border-zinc-800/30 rounded-md text-zinc-400 text-xs"
-            >
+            <span className="px-2 py-1 bg-zinc-800/30 border border-zinc-800/30 rounded-md text-zinc-400 text-xs">
               +{project.technologies.length - 4} more
-            </motion.span>
+            </span>
           )}
-        </motion.div>
+        </div>
 
         {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          viewport={{ once: true }}
-          className="flex gap-3 pt-2"
-        >
-          <motion.a
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+        <div className="flex gap-3 pt-2">
+          <a
             href={project.previewLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -370,20 +325,16 @@ const ProjectCard = ({ project, setSelectedProject }) => {
           >
             <FaExternalLinkAlt className="text-xs" />
             <span>Live Demo</span>
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          </a>
+          <a
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-3 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 text-white rounded-lg text-sm transition-all duration-300"
           >
             <FaGithub className="text-sm" />
-          </motion.a>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          </a>
+          <button
             onClick={() => setSelectedProject(project)}
             className="flex items-center justify-center gap-2 px-3 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 text-white rounded-lg text-sm transition-all duration-300"
           >
@@ -396,13 +347,12 @@ const ProjectCard = ({ project, setSelectedProject }) => {
             >
               <path d="M15 12L9 16.5V7.5L15 12Z" fill="currentColor" />
             </svg>
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </div>
     </motion.div>
   );
 };
-
 const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -416,7 +366,7 @@ const ProjectModal = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.2, ease: "easeOut" }} // Faster transition
       className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6"
       onClick={onClose}
     >
@@ -426,11 +376,11 @@ const ProjectModal = ({ project, onClose }) => {
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{
           type: "spring",
-          stiffness: 300,
+          stiffness: 400, // Increased stiffness
           damping: 25,
           mass: 0.5,
         }}
-        className="bg-zinc-900 border border-zinc-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-zinc-900 border border-zinc-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto will-change-transform"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header with Image */}

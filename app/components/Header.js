@@ -3,16 +3,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Pacifico } from "next/font/google";
-import {
-  FaGithub,
-  FaLinkedinIn,
- 
-  FaHome,
-  FaProjectDiagram,
-  FaExternalLinkAlt,
-  
-} from "react-icons/fa";
-import {FaCircleInfo} from "react-icons/fa6"
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaRocket, FaStar, FaSpaceShuttle, FaSatellite } from "react-icons/fa";
+
 const pacifico = Pacifico({
   weight: "400",
   subsets: ["latin"],
@@ -37,20 +30,26 @@ const Header = () => {
   };
 
   const navItems = [
-    { name: "Home", icon: <FaHome size={16} /> },
-    { name: "About", icon: <FaCircleInfo size={16} /> },
-    { name: "Projects", icon: <FaProjectDiagram size={16} /> },
+    { name: "Home", icon: <FaRocket size={16} className="animate-bounce" /> },
+    {
+      name: "About",
+      icon: <FaSatellite size={16} className="animate-spin-slow" />,
+    },
+    {
+      name: "Projects",
+      icon: <FaSpaceShuttle size={16} className="animate-pulse" />,
+    },
   ];
 
   const socialIcons = [
     {
       name: "GitHub",
-      icon: <FaGithub size={20} />,
+      icon: <FaGithub size={20} className="hover:animate-spin-slow" />,
       link: "https://github.com/haider-9",
     },
     {
       name: "LinkedIn",
-      icon: <FaLinkedinIn size={20} />,
+      icon: <FaLinkedinIn size={20} className="hover:animate-spin-slow" />,
       link: "https://www.linkedin.com/in/haider-ahmad-439317164/",
     },
   ];
@@ -58,14 +57,19 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-900/80 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
+        isScrolled ? " backdrop-blur-lg shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
-        <Link href="/" className={`${pacifico.className} text-3xl `}>
+        <Link
+          href="/"
+          className={`${pacifico.className} text-3xl relative group`}
+        >
           Haider a.
+          <FaStar
+            className="absolute -top-2 -right-4 text-yellow-400 animate-twinkle"
+            size={12}
+          />
         </Link>
 
         <button
@@ -100,7 +104,7 @@ const Header = () => {
               <li key={name}>
                 <Link
                   href={name === "Home" ? "/" : `/${name.toLowerCase()}`}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105
                     ${
                       pathname ===
                       (name === "Home" ? "/" : `/${name.toLowerCase()}`)
@@ -117,13 +121,14 @@ const Header = () => {
           <a
             href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
             target="_blank"
-            className="flex items-center gap-2 px-6 py-2 rounded-lg 
-                     bg-white text-black
-                     hover:opacity-90 
-                     transition-all duration-300"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 rounded-xl 
+             bg-gray-700 text-white font-medium 
+             hover:bg-gray-800 hover:shadow-md hover:scale-105
+             transition-all duration-300"
           >
-            <FaExternalLinkAlt size={16} />
-            <span>Resume</span>
+            <FaRocket size={14} className="animate-bounce" />
+            <span>View Resume</span>
           </a>
         </nav>
 
@@ -144,9 +149,13 @@ const Header = () => {
         >
           <div className="p-8 h-full flex flex-col">
             <div
-              className={`${pacifico.className} text-3xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-12`}
+              className={`${pacifico.className} text-3xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-12 relative`}
             >
               Haider
+              <FaStar
+                className="absolute -top-2 -right-4 text-yellow-400 animate-twinkle"
+                size={12}
+              />
             </div>
             <nav className="flex-1">
               <ul className="space-y-4">
@@ -165,7 +174,7 @@ const Header = () => {
                   >
                     <Link
                       href={name === "Home" ? "/" : `/${name.toLowerCase()}`}
-                      className={`flex items-center gap-4 p-4 rounded-xl
+                      className={`flex items-center gap-4 p-4 rounded-xl hover:scale-105
                         ${
                           pathname ===
                           (name === "Home" ? "/" : `/${name.toLowerCase()}`)
@@ -192,10 +201,10 @@ const Header = () => {
                     href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
                     target="_blank"
                     className="flex items-center gap-4 p-4 rounded-xl
-                            bg-white text-black
+                            bg-white text-black hover:scale-105
                             hover:opacity-90 transition-all duration-300"
                   >
-                    <FaExternalLinkAlt size={16} />
+                    <FaRocket size={16} className="animate-bounce" />
                     <span className="text-lg">Resume</span>
                   </a>
                 </li>
@@ -212,7 +221,7 @@ const Header = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-slate-800 
                               flex items-center justify-center
-                             "
+                              hover:scale-110 transition-transform duration-300"
                     aria-label={name}
                   >
                     {icon}
