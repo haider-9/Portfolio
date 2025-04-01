@@ -43,19 +43,6 @@ const AboutPage = () => {
     { emoji: "🐍", text: "Python lover (the language, not the snake)" },
   ];
 
-  const codingJourney = [
-    {
-      year: "2018",
-      event: "First 'Hello World' (followed by many confused faces)",
-    },
-    { year: "2020", event: "Discovered Stack Overflow - my digital savior" },
-    {
-      year: "2022",
-      event: "Built first full-stack app (and learned humility)",
-    },
-    { year: "2023", event: "Fell in love with TypeScript (it's complicated)" },
-  ];
-
   const highlights = [
     {
       number: "2+",
@@ -181,22 +168,22 @@ const AboutPage = () => {
   const interests = [
     {
       name: "Astronomy",
-      icon: <GiGalaxy size={24} />,
+      icon: "/icons/black-hole.icon.png",
       description: "Exploring celestial bodies and cosmic phenomena",
     },
     {
       name: "Mathematics",
-      icon: <TbMathXDivideY2 size={24} />,
+      icon: '/icons/euler-identity.webp',
       description: "Problem-solving and abstract reasoning",
     },
     {
       name: "Anime",
-      icon: <FaStar size={24} />,
+      icon: "/icons/anime-icon.png",
       description: "Japanese animation and storytelling",
     },
     {
       name: "Web Development",
-      icon: <FaCode size={24} />,
+      icon: '/icons/web-dev.png',
       description: "Creating interactive digital experiences",
     },
   ];
@@ -445,7 +432,7 @@ const AboutPage = () => {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12"
             initial="hidden"
             animate="visible"
             transition={{ staggerChildren: 0.1 }}
@@ -459,11 +446,11 @@ const AboutPage = () => {
                 }}
                 className="group relative p-6 rounded-2xl bg-white bg-zinc-700/50 flex items-start gap-4 shadow-sm border  border-zinc-600"
               >
-                <div className=" text-zinc-300 relative p-3 rounded-lg bg-zinc-100 bg-zinc-600/50">
-                  {icon}
+                <div className=" text-zinc-300 relative size-10 ">
+                  <img src={icon} alt={icon} className="h-full w-full object-cover object-center" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold  text-zinc-100 mb-1">
+                  <h3 className="text-lg font-semibold text-zinc-100 mb-1">
                     {name}
                   </h3>
                   <p className="text-sm  text-zinc-400">{description}</p>

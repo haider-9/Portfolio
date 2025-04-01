@@ -170,7 +170,7 @@ export function GradientBg() {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full bg-gradient-to-b from-zinc-950 via-zinc-900 to-indigo-950/30 -z-10 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 w-full h-full bg-gradient-to-b from-zinc-950 via-zinc-900 to-indigo-950/30 -z-50 overflow-hidden pointer-events-none">
       {/* Nebula effects with reduced blur */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20">
         <div
@@ -256,7 +256,6 @@ export function GradientBg() {
         />
       ))}
 
-      {/* Space Objects - reduced quantity and simplified */}
       {isClient && (
         <div className="absolute inset-0">
           {spaceObjects.map(renderSpaceObject)}

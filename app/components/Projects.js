@@ -8,7 +8,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import Image from "next/image";
-import { FaReact, FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
+import { FaReact, FaGithub, } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -22,6 +22,8 @@ import {
   SiRadixui,
 } from "react-icons/si";
 import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
+
 
 // Tech icons with colors
 const techIcons = {
@@ -319,7 +321,7 @@ const ProjectCard = ({ project, setSelectedProject }) => {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-600/90 hover:bg-blue-700/90 text-white rounded-lg text-sm transition-all duration-300 flex-1"
           >
-            <FaExternalLinkAlt className="text-xs" />
+            <FiExternalLink className="text-xs" />
             <span>Live Demo</span>
           </motion.a>
           <motion.a
@@ -515,7 +517,7 @@ const ProjectModal = ({ project, onClose }) => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600/90 hover:bg-blue-700/90 text-white rounded-lg text-sm transition-all duration-300 flex-1 sm:flex-none"
             >
-              <FaExternalLinkAlt />
+              <FiExternalLink />
               <span>Visit Live Site</span>
             </motion.a>
             <motion.a
