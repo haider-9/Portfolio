@@ -19,7 +19,7 @@ const AboutPage = () => {
   };
 
   return (
-    <main className="pt-24 min-h-screen py-16 sm:py-24 md:py-32 relative overflow-hidden">
+    <main className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
