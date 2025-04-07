@@ -170,8 +170,17 @@ export function GradientBg() {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full bg-gradient-to-b from-zinc-950 via-zinc-900 to-indigo-950/30 -z-50 overflow-hidden pointer-events-none">
-      {/* Nebula effects with reduced blur */}
+    <div className="fixed inset-0 w-full  bg-gradient-to-b from-zinc-950 via-zinc-900 to-indigo-950/30 -z-50 overflow-hidden pointer-events-none"
+    style={{ 
+      height: '100vh',
+      height: 'calc(var(--vh, 1vh) * 100)',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
+    }}
+    >
       <div className="absolute top-0 left-0 w-full h-full opacity-20">
         <div
           className="absolute top-10 left-10 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[80px]"
@@ -181,7 +190,6 @@ export function GradientBg() {
         ></div>
       </div>
 
-      {/* Static Stars (better performance than animated ones) */}
       {isClient && (
         <div className="absolute inset-0">
           {stars.map((star) => (
@@ -200,7 +208,6 @@ export function GradientBg() {
         </div>
       )}
 
-      {/* Reduced number of twinkling stars */}
       {isClient && (
         <div className="absolute inset-0">
           {stars
