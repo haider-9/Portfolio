@@ -20,6 +20,7 @@ import {
   SiReactrouter,
   SiShadcnui,
   SiRadixui,
+  SiAppwrite 
 } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -36,6 +37,7 @@ const techIcons = {
   ReactRouter: <SiReactrouter className="text-[#CA4245]" />,
   ShadcnUI: <SiShadcnui className="text-[#000000] dark:text-[#FFFFFF]" />,
   RadixUI: <SiRadixui className="text-[#14B8A6]" />,
+  Appwrite: <SiAppwrite className="text-[#F02E65]" />,
 };
 
 // Tech colors for background gradients (softer versions)
@@ -51,9 +53,28 @@ const techColors = {
   ReactRouter: "from-[#CA4245]/5 to-[#CA4245]/10",
   ShadcnUI: "from-gray-700/5 to-gray-800/10",
   RadixUI: "from-[#14B8A6]/5 to-[#14B8A6]/10",
+  Appwrite: "from-[#F02E65]/5 to-[#F02E65]/10",
 };
 
 const projectData = [
+  {
+    id: 11,
+    title: "DevHive",
+    description:
+      "DevHive is a modern developer community platform where tech professionals can connect, share knowledge, and stay updated with the latest industry trends. We are building a comprehensive social platform for developers to collaborate, learn, and grow together.",
+    image: "/assets/projects/Devhive.png",
+    technologies: [
+      "Next.js",
+      "React",
+      "Tailwind",
+      "Apppwrite",
+
+    ],
+    githubLink: "https://github.com/haider-9/DevHive",
+    previewLink: "https://devhsr.vercel.app",
+    year: "2025",
+    category: "Full Stack",
+  },
   {
     id: 1,
     title: "Animadom",
