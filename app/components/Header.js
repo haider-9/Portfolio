@@ -119,7 +119,7 @@ const Header = () => {
             ))}
           </ul>
           <a
-            href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1BFzZbOo4w9K1G6J4XLXbtz7c8I90Um-A/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 rounded-xl 
@@ -198,7 +198,7 @@ const Header = () => {
                   }}
                 >
                   <a
-                    href="https://drive.google.com/file/d/1rqdnEehsTmZkGc3k5CgdAruXK-VZaRBd/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1BFzZbOo4w9K1G6J4XLXbtz7c8I90Um-A/view?usp=drivesdk"
                     target="_blank"
                     className="flex items-center gap-4 p-4 rounded-xl
                             bg-white text-black hover:scale-105
