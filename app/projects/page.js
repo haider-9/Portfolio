@@ -67,7 +67,7 @@ const projectData = [
       "Next.js",
       "React",
       "Tailwind",
-      "Apppwrite",
+      "Appwrite",
 
     ],
     githubLink: "https://github.com/haider-9/DevHive",
