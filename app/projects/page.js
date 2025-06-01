@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -20,11 +20,11 @@ import {
   SiReactrouter,
   SiShadcnui,
   SiRadixui,
-  SiAppwrite 
+  SiAppwrite,
+  SiFramer,
 } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 
-// Tech icons with colors
 const techIcons = {
   React: <FaReact className="text-[#61DAFB]" />,
   "Next.js": <SiNextdotjs className="text-white" />,
@@ -38,9 +38,9 @@ const techIcons = {
   ShadcnUI: <SiShadcnui className="text-[#000000] dark:text-[#FFFFFF]" />,
   RadixUI: <SiRadixui className="text-[#14B8A6]" />,
   Appwrite: <SiAppwrite className="text-[#F02E65]" />,
+  Framer: <SiFramer className="text-[#0055FF]" />,
 };
 
-// Tech colors for background gradients (softer versions)
 const techColors = {
   React: "from-[#61DAFB]/5 to-[#61DAFB]/10",
   "Next.js": "from-gray-800/10 to-gray-900/5",
@@ -54,6 +54,7 @@ const techColors = {
   ShadcnUI: "from-gray-700/5 to-gray-800/10",
   RadixUI: "from-[#14B8A6]/5 to-[#14B8A6]/10",
   Appwrite: "from-[#F02E65]/5 to-[#F02E65]/10",
+  Framer: "from-[#0055FF]/5 to-[#0055FF]/10",
 };
 
 const projectData = [
@@ -63,13 +64,7 @@ const projectData = [
     description:
       "DevHive is a modern developer community platform where tech professionals can connect, share knowledge, and stay updated with the latest industry trends. We are building a comprehensive social platform for developers to collaborate, learn, and grow together.",
     image: "/assets/projects/Devhive.png",
-    technologies: [
-      "Next.js",
-      "React",
-      "Tailwind",
-      "Appwrite",
-
-    ],
+    technologies: ["Next.js", "React", "Tailwind", "Appwrite"],
     githubLink: "https://github.com/haider-9/DevHive",
     previewLink: "https://devhsr.vercel.app",
     year: "2025",
@@ -197,6 +192,18 @@ const projectData = [
     technologies: ["Next.js", "React"],
     githubLink: "https://github.com/haider-9/Tipu-Electrics",
     previewLink: "https://tipu-electrics.vercel.app/",
+    year: "2025",
+    category: "Frontend",
+  },
+  {
+    id: 9,
+    title: "Audix",
+    description:
+      "Audix earbuds deliver premium sound, deep bass, and all-day comfort. Shop wireless earbuds engineered for music lovers, gamers, and everyday listeners.",
+    image: "/assets/projects/Audix.png",
+    technologies: ["Next.js", "React", "Tailwind", "Framer"],
+    githubLink: "https://github.com/haider-9/Audix",
+    previewLink: "https://audixs.vercel.app",
     year: "2025",
     category: "Frontend",
   },
@@ -375,6 +382,7 @@ const ProjectCard = ({ project, setSelectedProject }) => {
     </motion.div>
   );
 };
+
 const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";

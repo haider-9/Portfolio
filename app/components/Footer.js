@@ -1,27 +1,40 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-200 py-6 mt-auto">
+    <footer className="relative py-6 mt-auto backdrop-blur-sm border-t border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <div className="text-xs sm:text-sm md:text-base text-gray-600">
+          <div className="text-xs sm:text-sm md:text-base text-zinc-400">
             © {new Date().getFullYear()} | Built with passion
           </div>
-          
-          <div className="hidden md:flex space-x-6">
-            <Link href="https://github.com/haider-9" target="_blank" rel="noopener noreferrer">
-              <span className="text-gray-600 hover:text-gray-300">GitHub</span>
-            </Link>
-            <Link href="https://www.linkedin.com/in/haider-ahmad-439317164/" target="_blank" rel="noopener noreferrer">
-              <span className="text-gray-600 hover:text-gray-300">LinkedIn</span>
-            </Link>
+
+          <div className="flex flex-col items-end space-y-2">
+            <div className="flex space-x-6">
+              <Link
+                href="https://github.com/haider-9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+              >
+                <FaGithub className="size-8 text-zinc-400 hover:invert" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/haider-ahmad-439317164/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+              >
+                <FaLinkedin className="size-8 text-zinc-400 hover:text-blue-400" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
