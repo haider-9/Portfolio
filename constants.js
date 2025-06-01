@@ -54,20 +54,6 @@ export const techColors = {
 
 export const projectData = [
   {
-    id: 11,
-    title: "DevHive",
-    description:
-      "DevHive is a modern developer community platform where tech professionals can connect, share knowledge, and stay updated with the latest industry trends. We are building a comprehensive social platform for developers to collaborate, learn, and grow together.",
-    image: "/assets/projects/Devhive.png",
-    technologies: ["Next.js", "React", "Tailwind", "Appwrite"],
-    githubLink: "https://github.com/haider-9/DevHive",
-    previewLink: "https://devhsr.vercel.app",
-    year: "2025",
-    category: "Full Stack",
-    theme: "#A855F733",
-  },
-  {
-    id: 1,
     title: "Animadom",
     description:
       "Welcome to AnimaDom, your ultimate destination for everything anime! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of anime",
@@ -88,10 +74,33 @@ export const projectData = [
     previewLink: "https://animadom.vercel.app",
     year: "2024",
     category: "Full Stack",
-    theme: "#F9731633",
+    theme: "#1c1b2e", // Deep indigo from anime collage
   },
   {
-    id: 2,
+    title: "Audix",
+    description:
+      "Audix earbuds deliver premium sound, deep bass, and all-day comfort. Shop wireless earbuds engineered for music lovers, gamers, and everyday listeners.",
+    image: "/assets/projects/Audix.png",
+    technologies: ["Next.js", "React", "Tailwind", "Framer"],
+    githubLink: "https://github.com/haider-9/Audix",
+    previewLink: "https://audixs.vercel.app",
+    year: "2025",
+    category: "Frontend",
+    theme: "#4c3f91", // Blueish purple from earbuds product shot
+  },
+  {
+    title: "Tipu Electrics",
+    description:
+      "Tipu Electrical Services has been providing top-quality electrical solutions to residential, commercial, and industrial clients for over 15 years. Founded with a commitment to excellence, we have grown to become one of the most trusted names in the industry.",
+    image: "/assets/projects/Tipu.png",
+    technologies: ["Next.js", "React"],
+    githubLink: "https://github.com/haider-9/Tipu-Electrics",
+    previewLink: "https://tipu-electrics.vercel.app/",
+    year: "2025",
+    category: "Frontend",
+    theme: "#0c1c33", // Dark blue from brand colors
+  },
+  {
     title: "MangaDom",
     description:
       "Welcome to MangaDom, your ultimate destination for everything manga! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of manga",
@@ -108,10 +117,57 @@ export const projectData = [
     previewLink: "https://mangadom.vercel.app",
     year: "2024",
     category: "Frontend",
-    theme: "#22C55E33",
+    theme: "#2d1e1e", // Muted maroon from manga imagery
   },
   {
-    id: 3,
+    title: "DevHive",
+    description:
+      "DevHive is a modern developer community platform where tech professionals can connect, share knowledge, and stay updated with the latest industry trends. We are building a comprehensive social platform for developers to collaborate, learn, and grow together.",
+    image: "/assets/projects/Devhive.png",
+    technologies: ["Next.js", "React", "Tailwind", "Appwrite"],
+    githubLink: "https://github.com/haider-9/DevHive",
+    previewLink: "https://devhsr.vercel.app",
+    year: "2025",
+    category: "Full Stack",
+    theme: "#1c1c1c", // Solid dark gray from dashboard UI
+  },
+  {
+    title: "Samurai Systems",
+    description:
+      "Samurai -Team of solution architects, developers and consultants having only one aim in mind deliver the best, nothing else ",
+    image: "/assets/projects/Samurai.png",
+    technologies: ["Next.js", "React"],
+    githubLink: "https://github.com/Sharoon166/Samurai_Systems",
+    previewLink: "https://samurai-systems166.vercel.app/",
+    year: "2024",
+    category: "Frontend",
+    theme: "#1a0c0c", // Deep red-black from branding
+  },
+  {
+    title: "Z-Digitizing",
+    description:
+      "Welcome to Z Digitizing, your trusted partner for high-quality embroidery digitizing services.",
+    image: "/assets/projects/z.png",
+    technologies: ["Next.js", "React"],
+    githubLink: "https://github.com/Sharoon166/z_digitizing",
+    previewLink: "https://z-digitizing.vercel.app/",
+    year: "2024",
+    category: "Frontend",
+    theme: "#1f1f1f", // Neutral dark from embroidery theme
+  },
+  {
+    title: "Break Time",
+    description:
+      "This web application serves as the admin dashboard for Braketime's backoffice operations. It provides a centralized interface for managing various aspects of the business, including employee records, customer data, inventory management, and more. 💼🏢",
+    image: "/assets/projects/Shop.png",
+    technologies: ["Tailwind", "React"],
+    githubLink: "https://github.com/Sharoon166/brake-time",
+    previewLink: "https://brake-time.vercel.app/",
+    year: "2024",
+    category: "Frontend",
+    theme: "#1a2e1a", // Dark green from dashboard UI
+  },
+  {
     title: "Resume-Crew",
     description:
       "A sleek and interactive resume builder with multiple template options and real-time preview.",
@@ -121,10 +177,9 @@ export const projectData = [
     previewLink: "https://resumecrew.vercel.app/",
     year: "2025",
     category: "Frontend",
-    theme: "#3B82F633",
+    theme: "#0a1e22", // Dark blue from templates
   },
   {
-    id: 4,
     title: "Voyager",
     description:
       "Voyager is a modern travel experience platform designed to help users discover, plan, and share their travel adventures. With an intuitive interface and comprehensive features, Voyager makes travel planning seamless and enjoyable.",
@@ -145,71 +200,6 @@ export const projectData = [
     previewLink: "https://voyagermern.vercel.app/",
     year: "2024",
     category: "Full Stack",
-    theme: "#06B6D433",
-  },
-  {
-    id: 5,
-    title: "Break Time",
-    description:
-      "This web application serves as the admin dashboard for Braketime's backoffice operations. It provides a centralized interface for managing various aspects of the business, including employee records, customer data, inventory management, and more. 💼🏢",
-    image: "/assets/projects/Shop.png",
-    technologies: ["Tailwind", "React"],
-    githubLink: "https://github.com/Sharoon166/brake-time",
-    previewLink: "https://brake-time.vercel.app/",
-    year: "2024",
-    category: "Frontend",
-    theme: "#EAB30833",
-  },
-  {
-    id: 6,
-    title: "Samurai Systems",
-    description:
-      "Samurai -Team of solution architects, developers and consultants having only one aim in mind deliver the best, nothing else ",
-    image: "/assets/projects/Samurai.png",
-    technologies: ["Next.js", "React"],
-    githubLink: "https://github.com/Sharoon166/Samurai_Systems",
-    previewLink: "https://samurai-systems166.vercel.app/",
-    year: "2024",
-    category: "Frontend",
-    theme: "#EF444433",
-  },
-  {
-    id: 7,
-    title: "Z-Digitizing",
-    description:
-      "Welcome to Z Digitizing, your trusted partner for high-quality embroidery digitizing services.",
-    image: "/assets/projects/z.png",
-    technologies: ["Next.js", "React"],
-    githubLink: "https://github.com/Sharoon166/z_digitizing",
-    previewLink: "https://z-digitizing.vercel.app/",
-    year: "2024",
-    category: "Frontend",
-    theme: "#8B5CF633",
-  },
-  {
-    id: 8,
-    title: "Tipu Electrics",
-    description:
-      "Tipu Electrical Services has been providing top-quality electrical solutions to residential, commercial, and industrial clients for over 15 years. Founded with a commitment to excellence, we have grown to become one of the most trusted names in the industry.",
-    image: "/assets/projects/Tipu.png",
-    technologies: ["Next.js", "React"],
-    githubLink: "https://github.com/haider-9/Tipu-Electrics",
-    previewLink: "https://tipu-electrics.vercel.app/",
-    year: "2025",
-    category: "Frontend",
-    theme: "#F59E0B33",
-  },
-  {
-    id: 9,
-    title: "Audix",
-    description:
-      "Audix earbuds deliver premium sound, deep bass, and all-day comfort. Shop wireless earbuds engineered for music lovers, gamers, and everyday listeners.",
-    image: "/assets/projects/Audix.png",
-    technologies: ["Next.js", "React", "Tailwind", "Framer"],
-    githubLink: "https://github.com/haider-9/Audix",
-    previewLink: "https://audixs.vercel.app",
-    year: "2025",
-    category: "Frontend",
-    theme: "#64748B33",
+    theme: "#0a1e22", // Dark cyan/navy from travel imagery
   },
 ];

@@ -137,10 +137,12 @@ const ProjectModal = ({ project, onClose }) => {
           damping: 25,
           mass: 0.5,
         }}
-        className="bg-zinc-900 border border-zinc-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto will-change-transform"
+        className="border border-zinc-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto will-change-transform"
+        style={{
+          background: `linear-gradient(45deg, rgba(39, 39, 42, 0.95), ${project.theme})`,
+        }}
         onClick={(e) => e.stopPropagation()}
-      >
-        {/* Modal Header with Image */}
+      >        {/* Modal Header with Image */}
         <div className="relative h-56 sm:h-72">
           <motion.div
             initial={{ opacity: 0 }}
@@ -155,7 +157,12 @@ const ProjectModal = ({ project, onClose }) => {
               className="rounded-t-xl"
             />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-900/90" />
+          <div
+            className="absolute inset-0 rounded-t-xl"
+            style={{
+              background: `linear-gradient(to bottom, transparent, ${project.theme}90)`,
+            }}
+          />
 
           <motion.div
             initial={{ opacity: 0, y: -10 }}
