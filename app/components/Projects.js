@@ -50,7 +50,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
           {projectData.slice(0, 3).map((project) => (
             <ProjectCard
-              key={project.id}
+              key={project.title}
               project={project}
               setSelectedProject={setSelectedProject}
               techColors={techColors}

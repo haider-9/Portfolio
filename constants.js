@@ -12,6 +12,7 @@ import {
   SiRadixui,
   SiAppwrite,
   SiFramer,
+  SiKonva
 } from "react-icons/si";
 
 export const techIcons = {
@@ -28,6 +29,8 @@ export const techIcons = {
   RadixUI: <SiRadixui style={{ color: "rgba(20, 184, 166, 1)" }} />,
   Appwrite: <SiAppwrite style={{ color: "rgba(240, 46, 101, 1)" }} />,
   Framer: <SiFramer style={{ color: "rgba(0, 85, 255, 1)" }} />,
+  Konva: <SiKonva style={{ color: "rgba(0, 150, 136, 1)" }} />
+  
 };
 
 export const techColors = {
@@ -50,6 +53,8 @@ export const techColors = {
   RadixUI: { from: "rgba(20, 184, 166, 0.05)", to: "rgba(20, 184, 166, 0.1)" },
   Appwrite: { from: "rgba(240, 46, 101, 0.05)", to: "rgba(240, 46, 101, 0.1)" },
   Framer: { from: "rgba(0, 85, 255, 0.05)", to: "rgba(0, 85, 255, 0.1)" },
+  Konva: { from: "rgba(0, 150, 136, 0.05)", to: "rgba(0, 150, 136, 0.1)" }
+  
 };
 
 export const projectData = [
@@ -75,6 +80,17 @@ export const projectData = [
     year: "2024",
     category: "Full Stack",
     theme: "#1c1b2e", // Deep indigo from anime collage
+  },
+  {
+    title:"Scriblr",
+    description:"A whiteboarding app like excalidraw.",
+    image:"/assets/projects/Scriblr.png",
+    technologies:["React","Tailwind","ShadcnUI","Konva"],
+    githubLink:"https://github.com/haider-9/scriblr",
+    previewLink:"https://scriblr-green.vercel.app",
+    year:"2025",
+    category:"SaaS",
+    theme:"#2d1818",
   },
   {
     title: "Audix",
