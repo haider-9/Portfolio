@@ -59,6 +59,27 @@ export const techColors = {
 
 export const projectData = [
   {
+    title:'GaminDom',
+    description:
+      "Welcome to GaminDom, your ultimate destination for everything gaming! Whether you're a seasoned gamer or a curious newcomer, our website is designed to bring you closer to the vibrant world of gaming",
+    image: "/assets/projects/GaminDom.png",
+    technologies: [
+      "React",
+      "Tailwind",
+      "TypeScript",
+      "ReactRouter",
+      "ShadcnUI",
+      "RadixUI",
+      'Next.js',
+
+    ],
+    githubLink: 'https://github.com/haider-9/GaminDom',
+    previewLink: 'https://gamin-dom.vercel.app',
+    year: '2025',
+    category: 'Frontend',
+    theme: '#361518', // Deep indigo from gaming collage
+  },
+  {
     title: "Animadom",
     description:
       "Welcome to AnimaDom, your ultimate destination for everything anime! Whether you're a seasoned otaku or a curious newcomer, our website is designed to bring you closer to the vibrant world of anime",

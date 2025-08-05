@@ -1,19 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import {
   motion,
   useScroll,
   useTransform,
-  AnimatePresence,
 } from "framer-motion";
-import ProjectCard, { ProjectModal } from "../components/ProjectCard";
-import { projectData, techColors, techIcons } from "../../constants";
+import ProjectCard from "../components/ProjectCard";
+import { projectData } from "../../constants";
 
 const Projects = () => {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
@@ -52,25 +49,10 @@ const Projects = () => {
             <ProjectCard
               key={project.title}
               project={project}
-              setSelectedProject={setSelectedProject}
-              techColors={techColors}
-              techIcons={techIcons}
             />
           ))}
         </div>
       </div>
-
-      {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-            techColors={techColors}
-            techIcons={techIcons}
-          />
-        )}
-      </AnimatePresence>
 
       <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
     </section>
