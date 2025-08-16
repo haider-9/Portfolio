@@ -74,7 +74,7 @@ export const projectData = [
 
     ],
     githubLink: 'https://github.com/haider-9/GaminDom',
-    previewLink: 'https://gamin-dom.vercel.app',
+    previewLink: 'https://gamindom.vercel.app',
     year: '2025',
     category: 'Frontend',
     theme: '#361518', // Deep indigo from gaming collage
